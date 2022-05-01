@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>How to deploy a multi-node elasticsearch cluster | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="How to deploy a multi-node elasticsearch cluster" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Elasticsearch에서 다중노드 환경의 클러스터 환경 구축 방법" />
+<meta property="og:description" content="Elasticsearch에서 다중노드 환경의 클러스터 환경 구축 방법" />
+<link rel="canonical" href="https://knu-cd2.github.io/blog/markdown/2022/04/30/deploy-multinode-elasticsearch-cluster.html" />
+<meta property="og:url" content="https://knu-cd2.github.io/blog/markdown/2022/04/30/deploy-multinode-elasticsearch-cluster.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-04-30T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="How to deploy a multi-node elasticsearch cluster" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-04-30T00:00:00-05:00","datePublished":"2022-04-30T00:00:00-05:00","description":"Elasticsearch에서 다중노드 환경의 클러스터 환경 구축 방법","headline":"How to deploy a multi-node elasticsearch cluster","mainEntityOfPage":{"@type":"WebPage","@id":"https://knu-cd2.github.io/blog/markdown/2022/04/30/deploy-multinode-elasticsearch-cluster.html"},"url":"https://knu-cd2.github.io/blog/markdown/2022/04/30/deploy-multinode-elasticsearch-cluster.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://knu-cd2.github.io/blog/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">How to deploy a multi-node elasticsearch cluster</h1><p class="page-description">Elasticsearch에서 다중노드 환경의 클러스터 환경 구축 방법</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-04-30T00:00:00-05:00" itemprop="datePublished">
+        Apr 30, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      2 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#markdown">markdown</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#엘라스틱서치-다중노드-클러스터-환경-구축">엘라스틱서치 다중노드 클러스터 환경 구축</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#1-인증서-생성">1. 인증서 생성</a></li>
+<li class="toc-entry toc-h2"><a href="#2-elasticsearchyml-파일-설정">2. elasticsearch.yml 파일 설정</a></li>
+<li class="toc-entry toc-h2"><a href="#3-keystore에-비밀번호-저장">3. keystore에 비밀번호 저장</a></li>
+<li class="toc-entry toc-h2"><a href="#4-http-인증서-생성">4. HTTP 인증서 생성</a></li>
+<li class="toc-entry toc-h2"><a href="#4-keystore에-비밀번호-저장">4. keystore에 비밀번호 저장</a></li>
+<li class="toc-entry toc-h2"><a href="#5-kibanayml-파일-설정">5. kibana.yml 파일 설정</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#reference">Reference</a></li>
+</ul><h1 id="엘라스틱서치-다중노드-클러스터-환경-구축">
+<a class="anchor" href="#%EC%97%98%EB%9D%BC%EC%8A%A4%ED%8B%B1%EC%84%9C%EC%B9%98-%EB%8B%A4%EC%A4%91%EB%85%B8%EB%93%9C-%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%B6%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>엘라스틱서치 다중노드 클러스터 환경 구축</h1>
+
+<h2 id="1-인증서-생성">
+<a class="anchor" href="#1-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EC%83%9D%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. 인증서 생성</h2>
+
+<p>클러스터에 포함된 노드들은 서로 transport module을 이용하여 통신을 한다.
+통신을 할 때 보안을 위해 TLS를 사용하는데 이를 위해 인증서를 생성하자.</p>
+
+<div class="Toast">
+   <span class="Toast-icon"><svg class="octicon octicon-info" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8zm6.5-.25A.75.75 0 017.25 7h1a.75.75 0 01.75.75v2.75h.25a.75.75 0 010 1.5h-2a.75.75 0 010-1.5h.25v-2h-.25a.75.75 0 01-.75-.75zM8 6a1 1 0 100-2 1 1 0 000 2z"></path></svg></span>
+   <span class="Toast-content">이 프로젝트에서는 서로 다른 2개의 서버에서 각각 노드 하나씩 생성하여 클러스터를 구성할 것이다.</span>
+</div>
+
+<p>첫번째 서버에서 인증서를 생성하고 이 인증서를 각 서버에 복사하는 과정을 진행할 것이다.
+작동중인 elasticsearch는 모두 종료하고 진행한다.</p>
+
+<p>CA를 생성한다.
+filename은 default인 elastic-stack-ca.p12로 진행한다.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/elasticsearch-certutil ca
+</code></pre></div></div>
+
+<p>이 CA를 이용해 certificate and private key를 생성한다.
+filename은 default인 elastic-certificates.p12로 하고, 비밀번호는 기억해둔다.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/elasticsearch-certutil cert <span class="nt">--ca</span> elastic-stack-ca.p12
+</code></pre></div></div>
+
+<p>생성된 elastic-certificates.p12를 config 폴더 안에 certs 폴더를 생성하고 거기에 복사한다.
+그리고, 이 파일을 각 서버에 전송하여야 한다. (서버에도 certs 폴더를 생성해야함)
+linux의 scp 명령어를 이용해 파일을 전송하자.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>scp <span class="nt">-P</span> <span class="o">{</span>포트번호<span class="o">}</span> /home/<span class="o">{</span>저장 경로<span class="o">}</span>/elasticsearch-8.1.0/config/certs/elastic-certificates.p12  <span class="o">{</span>호스트 이름<span class="o">}</span>@<span class="o">{</span>공개 서버 주소<span class="o">}</span>:/home/c2-elastic/elastic/elasticsearch-8.1.0/config/certs/
+</code></pre></div></div>
+
+<h2 id="2-elasticsearchyml-파일-설정">
+<a class="anchor" href="#2-elasticsearchyml-%ED%8C%8C%EC%9D%BC-%EC%84%A4%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. elasticsearch.yml 파일 설정</h2>
+
+<p>다음과 같이 elasticsearch.yml 파일을 각 서버마다 작성한다.
+주석처리 되어있는 것을 해제하여 사용하여도 좋고, 첫 줄에 추가적으로 작성하여도 된다.
+노드 이름은 각 서버마다 다르게 지정하여야 한다.</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">cluster.name</span><span class="pi">:</span> <span class="s">csp-cluster</span> <span class="c1"># 동일하기</span>
+<span class="na">node.name</span><span class="pi">:</span> <span class="s">c1-elastic</span> <span class="c1"># 서버마다 다르게</span>
+
+<span class="na">network.host</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">_local_"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">_site_"</span><span class="pi">]</span>
+<span class="na">http.port</span><span class="pi">:</span> <span class="m">9200</span>
+<span class="c1"># 클러스터에 포함된 노드의 서버 주소. 주의: public IP가 아닌 private IP를 작성한다.</span>
+<span class="c1"># hostname -I 명령어로 private IP 확인 가능함</span>
+<span class="na">discovery.seed_hosts</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">192.168.0.6"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">192.168.0.14"</span><span class="pi">]</span>
+<span class="na">cluster.initial_master_nodes</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">c1-elastic"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">c2-elastic"</span><span class="pi">]</span> <span class="c1"># 클러스터에 포함된 노드의 이름</span>
+
+<span class="na">xpack.security.enabled</span><span class="pi">:</span> <span class="no">true</span>
+<span class="na">xpack.security.enrollment.enabled</span><span class="pi">:</span> <span class="no">true</span>
+
+<span class="na">xpack.security.transport.ssl</span><span class="pi">:</span>
+  <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">verification_mode</span><span class="pi">:</span> <span class="s">certificate</span>
+  <span class="na">client_authentication</span><span class="pi">:</span> <span class="s">required</span>
+  <span class="na">keystore.path</span><span class="pi">:</span> <span class="s">certs/elastic-certificates.p12</span>
+  <span class="na">truststore.path</span><span class="pi">:</span> <span class="s">certs/elastic-certificates.p12</span>
+
+<span class="na">transport.host</span><span class="pi">:</span> <span class="pi">[</span><span class="nv">_local_</span><span class="pi">,</span> <span class="nv">_site_</span><span class="pi">]</span> <span class="c1"># 이것은 첫번째 서버에서만 작성하면 됨</span>
+</code></pre></div></div>
+
+<h2 id="3-keystore에-비밀번호-저장">
+<a class="anchor" href="#3-keystore%EC%97%90-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EC%A0%80%EC%9E%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. keystore에 비밀번호 저장</h2>
+
+<p>다음 명령어로 Elasticsearch keystore에 비밀번호를 저장한다.
+각 서버마다 실행한다.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/elasticsearch-keystore add xpack.security.transport.ssl.keystore.secure_password
+./bin/elasticsearch-keystore add xpack.security.transport.ssl.truststore.secure_password
+</code></pre></div></div>
+
+<h2 id="4-http-인증서-생성">
+<a class="anchor" href="#4-http-%EC%9D%B8%EC%A6%9D%EC%84%9C-%EC%83%9D%EC%84%B1" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. HTTP 인증서 생성</h2>
+
+<p>첫번째 서버에서 다음 명령어로 Elasticsearch HTTP certificate를 생성한다.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/elasticsearch-certutil http
+</code></pre></div></div>
+
+<ol>
+  <li>Generate a CSR? N</li>
+  <li>Use an existing CA? y</li>
+  <li>CA Path: /home/c2-elastic/elastic/elasticsearch-8.1.0/elastic-stack-ca.p12</li>
+  <li>For how long should your certificate be valid?: 5y</li>
+  <li>Generate a certificate per node? n</li>
+  <li>Enter all the hostnames that you need: ubuntu (hostname 명령어로 확인 가능)</li>
+  <li>Enter all IP addresses that you need: 192.168.0.6 192.168.0.14 (private IP 작성)</li>
+  <li>Do you wish to change any of these options? n</li>
+</ol>
+
+<p>생성된 elasticsearch-ssl-http.zip 파일을 압축해제 하면 elasticsearch 폴더와 kibana 폴더가 생성된다.
+elasticsearch 폴더 내의 http.p12 파일은 config/certs 폴더에 이동하고, 이 파일을 각 서버에 전송한다. (scp 명령어 활용)
+kibana 폴더 내의 elasticsearch-ca.pem 파일은 키바나 폴더의 config/certs 폴더에 이동한다.</p>
+
+<p>elasticsearch.yml 파일에 다음을 추가한다.</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">xpack.security.http.ssl</span><span class="pi">:</span>
+  <span class="na">enabled</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">keystore.path</span><span class="pi">:</span> <span class="s">certs/http.p12</span>
+</code></pre></div></div>
+
+<h2 id="4-keystore에-비밀번호-저장">
+<a class="anchor" href="#4-keystore%EC%97%90-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EC%A0%80%EC%9E%A5" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. keystore에 비밀번호 저장</h2>
+
+<p>다음 명령어로 Elasticsearch keystore에 비밀번호를 저장한다.
+각 서버마다 실행한다.</p>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./bin/elasticsearch-keystore add xpack.security.http.ssl.keystore.secure_password
+</code></pre></div></div>
+
+<h2 id="5-kibanayml-파일-설정">
+<a class="anchor" href="#5-kibanayml-%ED%8C%8C%EC%9D%BC-%EC%84%A4%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. kibana.yml 파일 설정</h2>
+
+<p>키바나를 실행시킬 서버에서 다음과 같이 yml 파일을 설정한다.</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">server.host</span><span class="pi">:</span> <span class="s">0.0.0.0</span>
+<span class="na">server.publicBaseUrl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">http://192.168.0.6:5601"</span>
+<span class="na">server.name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">csp-kibana"</span>
+
+<span class="na">elasticsearch.hosts</span><span class="pi">:</span> <span class="pi">[</span><span class="s2">"</span><span class="s">https://192.168.0.6:9200"</span><span class="pi">,</span> <span class="s2">"</span><span class="s">https://192.168.0.14:9200"</span><span class="pi">]</span>
+
+<span class="na">elasticsearch.ssl.certificateAuthorities</span><span class="pi">:</span>
+  <span class="pi">[</span><span class="s2">"</span><span class="s">/home/c1-elastic/elastic/kibana-8.1.0/config/certs/elasticsearch-ca.pem"</span><span class="pi">]</span>
+<span class="na">elasticsearch.serviceAccountToken</span><span class="pi">:</span> <span class="c1"># 초기 셋팅시 자동으로 생성된 서비스 토큰값 작성</span>
+</code></pre></div></div>
+
+<h1 id="reference">
+<a class="anchor" href="#reference" aria-hidden="true"><span class="octicon octicon-link"></span></a>Reference</h1>
+
+<ul>
+  <li>https://www.elastic.co/guide/en/elasticsearch/reference/8.1/security-basic-setup.html#encrypt-internode-communication</li>
+  <li>https://www.elastic.co/guide/en/elasticsearch/reference/8.1/security-basic-setup-https.html#encrypt-kibana-http</li>
+  <li>https://www.youtube.com/watch?v=id8L4fiCnQE&amp;t=939s</li>
+</ul>
+
+  </div><a class="u-url" href="/blog/markdown/2022/04/30/deploy-multinode-elasticsearch-cluster.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
