@@ -11,10 +11,14 @@ title: On-premise init connection with ssh
 
 # SSH를 통한 접속
 
+-------
+
 ## Hardware 설정
 
-`--(LAN)--Iptime--(LAN)--Raspberry`<br/>
+`Network--(LAN)--Iptime--(LAN)--Raspberry`<br/>
  위와 같이 Iptime 공유기와 라즈베리파이를 연결합니다.
+
+------
 
 ## DHCP로 할당된 IP 확인
   모니터 없이 초기 설정을 하기 때문에 iptime 관리자 페이지를 통해서 연결된 라즈베리파이가 어떤 내부아이피를 할당 받았는지 확인하는 과정이 필요합니다.
@@ -24,25 +28,23 @@ title: On-premise init connection with ssh
   ![]({{site.baseurl}}/images/ssh1.JPG)
   ![]({{site.baseurl}}/images/ssh2.JPG)
   ![]({{site.baseurl}}/images/ssh3.JPG)
-
   로그인을 한 후에  관리도구를 클릭합니다.
 
   ![]({{site.baseurl}}/images/ssh4.JPG)
-
   그 다음으로 `고급 설정 -> 네트워크 관리 -> 내부 네트워크` 설정으로 들어가면 라즈베리파이가 할당된 내부 아이피를 확인 할 수 있습니다.
 
   저의 경우 여러대의 라즈베리파이가 연결되어 있기에 내부 네트워크도 여러개인 것을 확인 할 수 있습니다.
+
+-------
 
 ## 포트포워딩
 
  저처럼 여러대의 라즈베리파이를 이용할 경우 외부아이피의 포트 22 하나로 여러대의 라즈베리파이에 ssh를 통해 접속할 수 없습니다. 그래서 포트포워딩을 설정해야합니다.
 
  ![]({{site.baseurl}}/images/ssh5.JPG)
-
  `고급설정 -> NAT/라우터관리 -> 포트포워드 설정` 으로 이동합니다. 저의 경우 위와 같이 포트포워딩이 설정되어 있습니다.
 
  ![]({{site.baseurl}}/images/ssh6.JPG)
-
  새로 포트포워드 규칙을 만들려면
  1. `새규칙 추가` 클릭 
  1. `규칙이름`에 원하는대로 규칙이름을 작성
@@ -52,13 +54,13 @@ title: On-premise init connection with ssh
  5. `적용`을 클립합니다.
 
  ![]({{site.baseurl}}/images/ssh7.JPG)
-
  예를 들어 위와 같이 설정 했을 때, 외부 아이피 : `59.23.xxx.xxx` 외부 포트 : `20004` 으로 접속하게 되면 `192.168.0.6`이 할당된 라즈베리파이의 22번 포트로 접속이 되게 됩니다.
+
+---------
 
 ## 접속 확인
 
  ![]({{site.baseurl}}/images/putty1.jpg)
-
  윈도우에서 접속확인을 하기 위해 `putty`라는 프로그램을 이용해서 ssh 접속을 시도해보겠습니다. ubuntu server를 처음 설치하면 유저이름은 `ubuntu`로 설정되어 있습니다.
 
  ![]({{site.baseurl}}/images/putty2.jpg)
@@ -74,4 +76,4 @@ title: On-premise init connection with ssh
  처음 접속시 비밀번호를 바꿔야합니다. 비밀번호를 바꾸면 일단 한번 꺼지는데 다시 접속을해 바꾼 비밀번호를 입력합니다.
 
  ![]({{site.baseurl}}/images/putty6.JPG)
- 위와 같이 정상적으로 접속되는 것을 확일 할 수 있습니다.
+ 위와 같이 정상적으로 접속되는 것을 확인 할 수 있습니다.
