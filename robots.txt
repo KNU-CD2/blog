@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://knu-cd2.github.io/sitemap.xml
