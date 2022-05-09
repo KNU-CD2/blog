@@ -28,7 +28,9 @@ title: On-premise init connection with ssh
   ![]({{site.baseurl}}/images/ssh1.JPG)
   ![]({{site.baseurl}}/images/ssh2.JPG)
   ![]({{site.baseurl}}/images/ssh3.JPG)
-  로그인을 한 후에  관리도구를 클릭합니다.<br/>
+  로그인을 한 후에  관리도구를 클릭합니다.
+  
+  <br/>
 
   ![]({{site.baseurl}}/images/ssh4.JPG)
   그 다음으로 `고급 설정 -> 네트워크 관리 -> 내부 네트워크` 설정으로 들어가면 라즈베리파이가 할당된 내부 아이피를 확인 할 수 있습니다.
@@ -42,7 +44,9 @@ title: On-premise init connection with ssh
  저처럼 여러대의 라즈베리파이를 이용할 경우 외부아이피의 포트 22 하나로 여러대의 라즈베리파이에 ssh를 통해 접속할 수 없습니다. 그래서 포트포워딩을 설정해야합니다.
 
  ![]({{site.baseurl}}/images/ssh5.JPG)
- `고급설정 -> NAT/라우터관리 -> 포트포워드 설정` 으로 이동합니다. 저의 경우 위와 같이 포트포워딩이 설정되어 있습니다.<br/>
+ `고급설정 -> NAT/라우터관리 -> 포트포워드 설정` 으로 이동합니다. 저의 경우 위와 같이 포트포워딩이 설정되어 있습니다.
+ 
+ <br/>
 
  ![]({{site.baseurl}}/images/ssh6.JPG)
  새로 포트포워드 규칙을 만들려면
@@ -52,6 +56,7 @@ title: On-premise init connection with ssh
  4. 외부포트 범위를 입력, 단일 포트를 쓸 경우 앞부분만 쓰고 `~` 뒤에 부분은 안써도 됩니다.
  5. 내부포트도 입력합니다.
  6. `적용`을 클립합니다.
+ 
  <br/>
 
  ![]({{site.baseurl}}/images/ssh7.JPG)
@@ -63,21 +68,25 @@ title: On-premise init connection with ssh
 
  ![]({{site.baseurl}}/images/putty1.jpg)
  윈도우에서 접속확인을 하기 위해 `putty`라는 프로그램을 이용해서 ssh 접속을 시도해보겠습니다. ubuntu server를 처음 설치하면 유저이름은 `ubuntu`로 설정되어 있습니다.
+ 
  <br/>
 
  ![]({{site.baseurl}}/images/putty2.jpg)
  `Accept`를 클릭합니다.
+ 
  <br/>
 
  ![]({{site.baseurl}}/images/putty3.jpg)
  ubuntu server 처음 설치시에는 비밀번호도 `ubuntu`로 설정되어있습니다. 타이핑을 해줍시다.
 
  __타이핑할 때 입력이 안되는거처럼 보여도 입력이 정상적으로 되는 중입니다. 그냥 입력하고 엔터를 누르면 정상적으로 작동합니다.__
+ 
  <br/>
  
  ![]({{site.baseurl}}/images/putty4.JPG)
  ![]({{site.baseurl}}/images/putty5.jpg)
  처음 접속시 비밀번호를 바꿔야합니다. 비밀번호를 바꾸면 일단 한번 꺼지는데 다시 접속을해 바꾼 비밀번호를 입력합니다.
+ 
  <br/>
  
  ![]({{site.baseurl}}/images/putty6.JPG)
