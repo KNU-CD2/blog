@@ -132,7 +132,7 @@ window.onload = wrap_img;
 <p><img src="/blog/images/ssh1.JPG" alt="">
   <img src="/blog/images/ssh2.JPG" alt="">
   <img src="/blog/images/ssh3.JPG" alt="">
-  로그인을 한 후에  관리도구를 클릭합니다.</p>
+  로그인을 한 후에  관리도구를 클릭합니다.<br></p>
 
 <p><img src="/blog/images/ssh4.JPG" alt="">
   그 다음으로 <code class="language-plaintext highlighter-rouge">고급 설정 -&gt; 네트워크 관리 -&gt; 내부 네트워크</code> 설정으로 들어가면 라즈베리파이가 할당된 내부 아이피를 확인 할 수 있습니다.</p>
@@ -147,7 +147,7 @@ window.onload = wrap_img;
 <p>저처럼 여러대의 라즈베리파이를 이용할 경우 외부아이피의 포트 22 하나로 여러대의 라즈베리파이에 ssh를 통해 접속할 수 없습니다. 그래서 포트포워딩을 설정해야합니다.</p>
 
 <p><img src="/blog/images/ssh5.JPG" alt="">
- <code class="language-plaintext highlighter-rouge">고급설정 -&gt; NAT/라우터관리 -&gt; 포트포워드 설정</code> 으로 이동합니다. 저의 경우 위와 같이 포트포워딩이 설정되어 있습니다.</p>
+ <code class="language-plaintext highlighter-rouge">고급설정 -&gt; NAT/라우터관리 -&gt; 포트포워드 설정</code> 으로 이동합니다. 저의 경우 위와 같이 포트포워딩이 설정되어 있습니다.<br></p>
 
 <p><img src="/blog/images/ssh6.JPG" alt="">
  새로 포트포워드 규칙을 만들려면</p>
@@ -160,7 +160,9 @@ window.onload = wrap_img;
   <li>외부포트 범위를 입력, 단일 포트를 쓸 경우 앞부분만 쓰고 <code class="language-plaintext highlighter-rouge">~</code> 뒤에 부분은 안써도 됩니다.</li>
   <li>내부포트도 입력합니다.</li>
   <li>
-<code class="language-plaintext highlighter-rouge">적용</code>을 클립합니다.</li>
+<code class="language-plaintext highlighter-rouge">적용</code>을 클립합니다.
+ <br>
+</li>
 </ol>
 
 <p><img src="/blog/images/ssh7.JPG" alt="">
@@ -172,19 +174,23 @@ window.onload = wrap_img;
 <a class="anchor" href="#%EC%A0%91%EC%86%8D-%ED%99%95%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>접속 확인</h2>
 
 <p><img src="/blog/images/putty1.jpg" alt="">
- 윈도우에서 접속확인을 하기 위해 <code class="language-plaintext highlighter-rouge">putty</code>라는 프로그램을 이용해서 ssh 접속을 시도해보겠습니다. ubuntu server를 처음 설치하면 유저이름은 <code class="language-plaintext highlighter-rouge">ubuntu</code>로 설정되어 있습니다.</p>
+ 윈도우에서 접속확인을 하기 위해 <code class="language-plaintext highlighter-rouge">putty</code>라는 프로그램을 이용해서 ssh 접속을 시도해보겠습니다. ubuntu server를 처음 설치하면 유저이름은 <code class="language-plaintext highlighter-rouge">ubuntu</code>로 설정되어 있습니다.
+ <br></p>
 
 <p><img src="/blog/images/putty2.jpg" alt="">
- <code class="language-plaintext highlighter-rouge">Accept</code>를 클릭합니다.</p>
+ <code class="language-plaintext highlighter-rouge">Accept</code>를 클릭합니다.
+ <br></p>
 
 <p><img src="/blog/images/putty3.jpg" alt="">
  ubuntu server 처음 설치시에는 비밀번호도 <code class="language-plaintext highlighter-rouge">ubuntu</code>로 설정되어있습니다. 타이핑을 해줍시다.</p>
 
-<p><strong>타이핑할 때 입력이 안되는거처럼 보여도 입력이 정상적으로 되는 중입니다. 그냥 입력하고 엔터를 누르면 정상적으로 작동합니다.</strong></p>
+<p><strong>타이핑할 때 입력이 안되는거처럼 보여도 입력이 정상적으로 되는 중입니다. 그냥 입력하고 엔터를 누르면 정상적으로 작동합니다.</strong>
+ <br></p>
 
 <p><img src="/blog/images/putty4.JPG" alt="">
  <img src="/blog/images/putty5.jpg" alt="">
- 처음 접속시 비밀번호를 바꿔야합니다. 비밀번호를 바꾸면 일단 한번 꺼지는데 다시 접속을해 바꾼 비밀번호를 입력합니다.</p>
+ 처음 접속시 비밀번호를 바꿔야합니다. 비밀번호를 바꾸면 일단 한번 꺼지는데 다시 접속을해 바꾼 비밀번호를 입력합니다.
+ <br></p>
 
 <p><img src="/blog/images/putty6.JPG" alt="">
  위와 같이 정상적으로 접속되는 것을 확인 할 수 있습니다.</p>
