@@ -81,25 +81,14 @@
   
 
   
+  
+
+  
 
   
   
 
   
-  
-
-  
-  
-
-  
-      ,"page10": {
-          "title": "",
-          "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
-          "url": "https://knu-cd2.github.io/blog/robots.txt",
-          "relUrl": "/robots.txt",
-          "date": ""
-      }
-      
   
 
 }

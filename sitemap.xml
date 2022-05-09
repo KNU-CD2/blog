@@ -1,35 +1,86 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://knu-cd2.github.io/blog/markdown/2020/01/14/test-markdown-post.html</loc>
-<lastmod>2020-01-14T00:00:00-06:00</lastmod>
-</url>
-<url>
-<loc>https://knu-cd2.github.io/blog/jupyter/2020/02/20/test.html</loc>
-<lastmod>2020-02-20T00:00:00-06:00</lastmod>
-</url>
-<url>
-<loc>https://knu-cd2.github.io/blog/elasticsearch/2022/04/30/deploy-multinode-elasticsearch-cluster.html</loc>
-<lastmod>2022-04-30T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://knu-cd2.github.io/blog/on-premise/2022/05/05/on-premise-hardware.html</loc>
-<lastmod>2022-05-05T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://knu-cd2.github.io/blog/logstash/2022/05/06/logstash-file-input-plugin-just-one-line.html</loc>
-<lastmod>2022-05-06T00:00:00-05:00</lastmod>
-</url>
-<url>
-<loc>https://knu-cd2.github.io/blog/about/</loc>
-</url>
-<url>
-<loc>https://knu-cd2.github.io/blog/</loc>
-</url>
-<url>
-<loc>https://knu-cd2.github.io/blog/search/</loc>
-</url>
-<url>
-<loc>https://knu-cd2.github.io/blog/categories/</loc>
-</url>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <url>
+        <loc>https://KNU-CD2.github.io/logstash/2022/05/06/logstash-file-input-plugin-just-one-line.html.html</loc>
+        
+        <lastmod>2022-05-06T00:00:00-05:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>https://KNU-CD2.github.io/on-premise/2022/05/05/on-premise-hardware.html.html</loc>
+        
+        <lastmod>2022-05-05T00:00:00-05:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>https://KNU-CD2.github.io/elasticsearch/2022/04/30/deploy-multinode-elasticsearch-cluster.html.html</loc>
+        
+        <lastmod>2022-04-30T00:00:00-05:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>https://KNU-CD2.github.io/jupyter/2020/02/20/test.html.html</loc>
+        
+        <lastmod>2020-02-20T00:00:00-06:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>https://KNU-CD2.github.io/markdown/2020/01/14/test-markdown-post.html.html</loc>
+        
+        <lastmod>2020-01-14T00:00:00-06:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
 </urlset>
