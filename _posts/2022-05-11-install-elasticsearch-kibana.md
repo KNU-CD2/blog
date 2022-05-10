@@ -1,9 +1,9 @@
 ---
 toc: true
 layout: post
-description: on-premise 유저 이름 바꾸기
-categories: [On-premise]
-title: On-premise username change
+description: ElasticSearch와 Kibana 설치하기
+categories: [Elaasticsearch, Kibana]
+title: Download ElasticSearch & Kibana
 ---
 
 # 리눅스 서버에 ElasticSearch와 Kibana 설치하기(8.1.0)
