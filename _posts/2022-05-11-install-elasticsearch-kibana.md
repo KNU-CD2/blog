@@ -2,7 +2,7 @@
 toc: true
 layout: post
 description: ElasticSearch와 Kibana 설치하기
-categories: [Elaasticsearch, Kibana]
+categories: [Elasticsearch, Kibana]
 title: Download ElasticSearch & Kibana
 ---
 
