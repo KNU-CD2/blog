@@ -14,6 +14,10 @@ title: On-premise username change
 
 <br/>
 
+------
+
+<br/>
+
 ## root로 ssh 접속하기
   ![]({{site.baseurl}}/images/change1.JPG)
   일반 유저로 접속 후 `sudo passwd root`를 입력한 후 본인이 설정하고자 하는 비밀번호를 입력합니다. 해당 커맨드는 os 처음 설치시, root 비밀번호를 설정하는 커맨드입니다.
@@ -43,6 +47,10 @@ title: On-premise username change
 
 <br/>
 
+----
+
+<br/>
+
 ## 사용자 이름 바꾸기
 
   ![]({{site.baseurl}}/images/change8.JPG)
@@ -57,6 +65,10 @@ title: On-premise username change
   <br/>
 
   추가적으로 `ubuntu@ubuntu` 뒤의 `ubuntu`는 그룹 이름인데 그룹 이름도 바꾸고 싶은 경우 `groupmod -m newname oldname` 커맨드를 입력해주시면 됩니다. 저 같은 경우 이 부분은 생략하였습니다.
+
+<br/>
+
+-----------
 
 <br/>
 
