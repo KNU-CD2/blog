@@ -73,7 +73,9 @@ localhost:5601 또는 ServerIP:5601 로 접속하면,
 
 토큰이 입력되면 kibana는 코드를 입력하라 합니다.
 ![]({{site.baseurl}}/images/inter8.PNG)
+
 Kibana를 실행시킬 때 코드를 입력해줍니다.
+![]({{site.baseurl}}/images/inter13.PNG)
 
 ![]({{site.baseurl}}/images/inter9.PNG)
 이렇게 Elasticsearch와 Kibana의 연동이 끝납니다.
