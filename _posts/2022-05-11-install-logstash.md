@@ -10,8 +10,10 @@ title: Download Logtash
 
 ## wget을 통한 Logstash 설치
 `wget`은 `Web Get`의 약어로 웹 상의 파일을 다운로드 받을 때 사용하는 리눅스 명령어로 비 상호작용 네트워크 다운로더입니다.
+
 https://www.elastic.co/kr/downloads/past-releases/logstash-8-1-0
-위 사이트에서 제공하는 파일을 다음과 같이 wget 명령어로 리눅스 서버에 살치합니다.
+
+위 사이트에서 제공하는 파일을 다음과 같이 wget 명령어로 리눅스 서버에 설치합니다.
 
 ```shell
 wget https://artifacts.elastic.co/downloads/logstash/logstash-8.1.0-linux-aarch64.tar.gz
@@ -44,4 +46,4 @@ bin/logstash -e 'input { stdin { } } output { stdout {} }'
 
 ![]({{site.baseurl}}/images/2022-05-11-install-logstash/logstash3.png)
 
-다음과 같이 정상적으로 설치가 입출력되는 것을 확인하였습니다.
+다음과 같이 정상적으로 설치가 되었고, 입출력되는 것을 확인하였습니다.
