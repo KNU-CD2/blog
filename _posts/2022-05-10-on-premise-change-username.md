@@ -64,7 +64,7 @@ title: On-premise username change
 
   <br/>
 
-  추가적으로 `ubuntu@ubuntu` 뒤의 `ubuntu`는 그룹 이름인데 그룹 이름도 바꾸고 싶은 경우 `groupmod -m newname oldname` 커맨드를 입력해주시면 됩니다. 저 같은 경우 이 부분은 생략하였습니다.
+  추가적으로 초기에 그룹 이름도 `ubuntu`로 되어 있는데, 그룹 이름도 바꾸고 싶은 경우 `groupmod -m newname oldname` 커맨드를 입력해주시면 됩니다. 저 같은 경우 이 부분은 생략하였습니다.
 
 <br/>
 
