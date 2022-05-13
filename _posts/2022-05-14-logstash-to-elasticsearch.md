@@ -3,14 +3,14 @@ toc: true
 layout: post
 description: Logstash에서 Elasticsearch로 데이터 전송 및 저장하는 방법. PKIX path building failed 에러 해결법.
 categories: [Logstash]
-title: How to connect Logstash with Elasticsearch.
+title: How to connect Logstash with Elasticsearch
 ---
 
 # Logstash에서 Elasticsearch로 데이터 저장하는 방법
 
 데이터 파이프라인을 구축하기 위해 Logstash에서 가공한 데이터를 Elasticsearch로 전송하여 데이터를 저장하고자 합니다.
 
-우선, Elasticsearch은 실행되어 있는 상태이여야 합니다. 다른 게시글을 참고하여 실행합니다.
+우선, Elasticsearch은 실행되어 있는 상태이여야 합니다. [다른 게시글](https://knu-cd2.github.io/blog/elasticsearch/kibana/2022/05/11/intergrating-elasticsearch-and-kibana.html)을 참고하여 실행합니다.
 
 다음으로 config 파일 `test.conf`을 작성합니다. 이번 예제에서는 Elasticsearch에서 발생하는 로그를 받아와 이것을 Elasticsearch로 전송하여 인덱스 `output`을 생성하여 저장하고, 눈으로 확인하기 위해 표준 출력으로도 받아보겠습니다.
 
@@ -62,7 +62,7 @@ output {
 
 ## conf 파일 변경
 
-elasticsearch 플로그인에 다음 두 옵션 `ssl_certificate_verification` `ssl`을 추가합니다.
+elasticsearch 플로그인에 다음 두 옵션 `ssl_certificate_verification`과 `ssl`을 추가합니다.
 ```conf
 ...
 
@@ -87,7 +87,7 @@ output {
 
 ![]({{site.baseurl}}/images/2022-05-14-logstash-to-elasticsearch/done1.png)
 
-정상적으로 실행되었습니다 !
+정상적으로 실행되었습니다! output에서 표준 출력으로 잘 출력되었음을 확인할 수 있습니다.
 
 # Elasticsearch에서 확인
 

@@ -70,3 +70,5 @@ tar -zxvf kibana-8.1.0-linux-aarch64.tar.gz
 
 ![]({{site.baseurl}}/images/install4.PNG)
 이렇게 ElasticSearch와 Kibana의 설치가 끝났습니다.
+
+연동하는 방법은 [다음 게시글](https://knu-cd2.github.io/blog/elasticsearch/kibana/2022/05/11/intergrating-elasticsearch-and-kibana.html)에서 알아보도록 하겠습니다.
