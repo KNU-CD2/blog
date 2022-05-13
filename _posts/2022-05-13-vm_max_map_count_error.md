@@ -6,11 +6,13 @@ categories: [Elasticsearch]
 title: How to handle vm.max_map_count [65530] error in elasticsearch
 ---
 
-# vm.max_map_count [65530] 에러 해결법
+# 문제 상황
 
 초기 엘라스틱서치 실행 후 다음과 같이 `max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]` 라고 오류가 발생할 때가 있습니다.
 
 ![]({{site.baseurl}}/images/2022-05-13-vm/error1.png)
+
+# 해결법
 
 위와 같이 에러가 발생하였다면 다음과 같이 입력하여 `vm.max_map_count`를 `262144`로 변경하면 됩니다.
 
