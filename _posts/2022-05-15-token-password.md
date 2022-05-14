@@ -27,7 +27,8 @@ Elasticsearch와 Kibana를 삭제 후 재설치 하시면
 위의 커맨드를 실행시키면 됩니다.
 
 ![]({{site.baseurl}}/images/token1.PNG)
-그러면 그림과 같이 토큰이 초기화됩니다.
+
+그러면 사진과 같이 토큰이 초기화됩니다.
 
 ![]({{site.baseurl}}/images/inter6.PNG)
 이 토큰을 Kibana 초기 접속화면에 입력하시면 키바나 사용이 가능합니다.
@@ -61,12 +62,12 @@ Kibana 로그인이 완료되었습니다.
 ![]({{site.baseurl}}/images/token6.PNG)
 비밀번호를 변경하고 싶으시면 우측상단에 프로필 창을 클릭합니다.
 
-![]({{site.baseurl}}/images/token6.PNG)
+![]({{site.baseurl}}/images/token7.PNG)
 사진과 같이 Kibana의 비밀번호를 원하는 비밀번호로 수정하실 수 있습니다!
 
 ## 3. Elasticsearch를 실행시키지 않았을 때
 
-![]({{site.baseurl}}/images/token6.PNG)
+![]({{site.baseurl}}/images/token8.PNG)
 Elasticsearch를 실행시키지 않고 커맨드를 날리면
 ERROR: Failed to determine the health of the cluster. 라는 에러가 발생합니다.
 
