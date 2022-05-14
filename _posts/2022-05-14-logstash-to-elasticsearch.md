@@ -58,7 +58,7 @@ output {
 
 여기서는 우선 1번을 이용한 해결 방법을 소개하도록 하겠습니다.
 
-2번 방법에 대한 해결법은 다음 게시물을 참고해주세요.
+2번 방법에 대한 해결법은 [다음 게시물](https://knu-cd2.github.io/blog/logstash/2022/05/14/pkix-path-building-failed.html)을 참고해주세요.
 
 ## conf 파일 변경
 
