@@ -71,4 +71,4 @@ Kibana 로그인이 완료되었습니다.
 Elasticsearch를 실행시키지 않고 커맨드를 날리면
 ERROR: Failed to determine the health of the cluster. 라는 에러가 발생합니다.
 
-그러므로 꼭 Elasticsearch를 실행시키고 커맨드를 날려주세요!!
+그러므로 꼭 Elasticsearch를 실행시키고 커맨드를 날려주셔야 합니다.
