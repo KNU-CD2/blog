@@ -56,7 +56,7 @@ output {
 }
 ```
 
-{% inc  lude alert.html text="Elasticsearch가 다중 노드로 구성되어 있다면 hosts에 해당 노드를 모두 추가하여야 합니다." %}
+{% include alert.html text="Elasticsearch가 다중 노드로 구성되어 있다면 hosts에 해당 노드를 모두 추가하여야 합니다." %}
 
 수정 후 다시 실행하여 봅시다.
 
