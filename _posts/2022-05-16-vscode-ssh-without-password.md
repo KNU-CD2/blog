@@ -2,7 +2,7 @@
 toc: true
 layout: post
 description: vscode를 이용한 ssh 원격 접속 자동 로그인 방법
-categories: [ssh]
+categories: [Ssh]
 title: SSH connect auto login with vscode
 ---
 

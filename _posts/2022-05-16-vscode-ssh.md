@@ -2,7 +2,7 @@
 toc: true
 layout: post
 description: vscode를 이용한 ssh 원격 접속 방법
-categories: [ssh]
+categories: [Ssh]
 title: SSH connect with vscode
 ---
 
@@ -14,7 +14,7 @@ title: SSH connect with vscode
 
 # 확장 프로그램 설치
 
-{% include info.html text="vscode가 설치되어 있지 않다면 [공식블로그](https://code.visualstudio.com/)를 참고하세요." %}
+{% include info.html text="vscode가 설치되어 있지 않다면 공식 사이트에서 다운로드하세요." %}
 
 vscode를 실행시키고, 좌측 메뉴바에서 마켓플레이스에 들어가 `SSH`를 검색합니다.
 
@@ -43,8 +43,8 @@ Host test_server
 
 작성을 완료 하셨으면 다시 버튼을 클릭하여 아까 저장해둔 정보로 접속을 해봅시다.
 
-![]({{site.baseurl}}/images/2022-05-16-vscode-ssh/list1.png)
+![]({{site.baseurl}}/images/2022-05-16-vscode-ssh/done1.png)
 
 서버의 비밀번호를 작성하면 접속에 성공합니다 !
 
-비밀번호 작성하는 것이 귀찮아졌다면, [원격 접속 자동 로그인 게시글](https://knu-cd2.github.io/blog/logstash/2022/05/16/vscode-ssh-without-password.html)을 참고해주세요.
+비밀번호 작성하는 것이 귀찮아졌다면, [원격 접속 자동 로그인 게시글](https://knu-cd2.github.io/blog/ssh/2022/05/16/vscode-ssh-without-password.html)을 참고해주세요.

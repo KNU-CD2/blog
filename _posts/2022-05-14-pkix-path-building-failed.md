@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: PKIX path building failed, unable to find valid certification path to requested target 에러 해결법.
 categories: [Logstash]
-title: PKIX path building faile 에러 해결법
+title: PKIX path building failed error
 ---
 
 # 문제 상황
