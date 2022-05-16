@@ -23,15 +23,12 @@
  }
 
  @font-face {
-    font-family: 'IBMPlexSansKR-Text';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Text.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+    font-family: 'IBMPlexSansKR-Bold';
+    src: url("../fonts/IBMPlexSansKR-Bold.ttf")
 }
 
 h1, h2, h3 {
-     font-family: IBMPlexSansKR-Regular;
-     font-weight: 700;
+     font-family: IBMPlexSansKR-Bold;
 }
 
 p code {
