@@ -22,8 +22,14 @@
     color: rgba(0, 0, 0, 0.87);
  }
 
- @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Bold.woff');
- h1, h2, h3 {
+ @font-face {
+    font-family: 'IBMPlexSansKR-Text';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Text.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2, h3 {
      font-family: IBMPlexSansKR-Regular;
      font-weight: 700;
 }
@@ -33,5 +39,5 @@ p code {
 }
 
 code {
- background-color: #E9ECEF;
+    background-color: #E9ECEF;
 }
