@@ -8,8 +8,8 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Kafka download and setting" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="on-premise 유저 이름 바꾸기" />
-<meta property="og:description" content="on-premise 유저 이름 바꾸기" />
+<meta name="description" content="카프카 다운로드 및 설정" />
+<meta property="og:description" content="카프카 다운로드 및 설정" />
 <link rel="canonical" href="https://knu-cd2.github.io/blog/kafka/2022/05/15/kafka-download.html" />
 <meta property="og:url" content="https://knu-cd2.github.io/blog/kafka/2022/05/15/kafka-download.html" />
 <meta property="og:site_name" content="fastpages" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Kafka download and setting" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-05-15T00:00:00-05:00","datePublished":"2022-05-15T00:00:00-05:00","description":"on-premise 유저 이름 바꾸기","headline":"Kafka download and setting","mainEntityOfPage":{"@type":"WebPage","@id":"https://knu-cd2.github.io/blog/kafka/2022/05/15/kafka-download.html"},"url":"https://knu-cd2.github.io/blog/kafka/2022/05/15/kafka-download.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-05-15T00:00:00-05:00","datePublished":"2022-05-15T00:00:00-05:00","description":"카프카 다운로드 및 설정","headline":"Kafka download and setting","mainEntityOfPage":{"@type":"WebPage","@id":"https://knu-cd2.github.io/blog/kafka/2022/05/15/kafka-download.html"},"url":"https://knu-cd2.github.io/blog/kafka/2022/05/15/kafka-download.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://knu-cd2.github.io/blog/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,7 +73,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Kafka download and setting</h1><p class="page-description">on-premise 유저 이름 바꾸기</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-15T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Kafka download and setting</h1><p class="page-description">카프카 다운로드 및 설정</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-15T00:00:00-05:00" itemprop="datePublished">
         May 15, 2022
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -109,6 +109,10 @@ window.onload = wrap_img;
 </ul><h1 id="카프카-다운로드-및-설정">
 <a class="anchor" href="#%EC%B9%B4%ED%94%84%EC%B9%B4-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-%EB%B0%8F-%EC%84%A4%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>카프카 다운로드 및 설정</h1>
 
+<p><strong>서버에 카프카 다운로드 후 로컬과 통신을 설정하는 과정입니다.</strong></p>
+
+<hr>
+
 <h2 id="카프카-다운로드">
 <a class="anchor" href="#%EC%B9%B4%ED%94%84%EC%B9%B4-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>카프카 다운로드</h2>
 
@@ -136,16 +140,15 @@ window.onload = wrap_img;
 
 <hr>
 
-<p><br></p>
-
 <h2 id="자바-설치">
 <a class="anchor" href="#%EC%9E%90%EB%B0%94-%EC%84%A4%EC%B9%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>자바 설치</h2>
 
 <p>카프카를 구동하기 위해서는 자바가 필요합니다. 자바도 설치해보도록 하겠습니다.</p>
 
-<p><img src="/blog/images/kafka/kafkaset5.JPG" alt="">
-<code class="language-plaintext highlighter-rouge">sudo apt install openjdk-8-jdk-headless</code> <br>
-저의 경우 자바 8 버전을 설치하였습니다.</p>
+<p><img src="/blog/images/kafka/kafkaset5.JPG" alt=""></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install openjdk-8-jdk-headless
+</code></pre></div></div>
+<p>저의 경우 자바 8 버전을 설치하였습니다.</p>
 
 <p><br></p>
 
@@ -156,26 +159,28 @@ window.onload = wrap_img;
 
 <hr>
 
-<p><br></p>
-
 <h2 id="카프카-사용-메모리-설정">
 <a class="anchor" href="#%EC%B9%B4%ED%94%84%EC%B9%B4-%EC%82%AC%EC%9A%A9-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%84%A4%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>카프카 사용 메모리 설정</h2>
 
 <p>이 부분은 무료 클라우드 인스턴스를 사용하거나 온프래미스 구축시 장비의  메모리가 부족하신 분들만 진행하시면 됩니다.</p>
 
-<p><code class="language-plaintext highlighter-rouge">vi ~/.bashrc</code> 명령어를 사용해 배쉬쉘에 들어간 다음에</p>
-
-<p><code class="language-plaintext highlighter-rouge">export KAFKA_HEAP_OPTS="-Xmx400m -Xms400m"</code> 를 입력후 저장해줍니다.</p>
-
-<p><code class="language-plaintext highlighter-rouge">source ./bashrc</code>를 해준다음 <code class="language-plaintext highlighter-rouge">echo $KAFKA_HEAP_OPTS</code>를 입력해 환경변수가 잘 지정되었는지 확인 해줍니다.</p>
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">vi ~/.bashrc</code> 명령어를 사용해 배쉬쉘에 들어간 다음에</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">export KAFKA_HEAP_OPTS="-Xmx400m -Xms400m"</code> 를 입력후 저장해줍니다.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">source ./bashrc</code>를 해준다음 <code class="language-plaintext highlighter-rouge">echo $KAFKA_HEAP_OPTS</code>를 입력해 환경변수가 잘 지정되었는지 확인 해줍니다.</p>
+  </li>
+</ol>
 
 <p>저 같은 경우 메모리 8G 라즈베리파이를 이용했기에 이 과정은 넘어갔습니다.</p>
 
 <p><br></p>
 
 <hr>
-
-<p><br></p>
 
 <h2 id="serverproperties-설정">
 <a class="anchor" href="#serverproperties-%EC%84%A4%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>server.properties 설정</h2>
@@ -209,12 +214,10 @@ vim config/server.properties
 
 <hr>
 
-<p><br></p>
-
 <h2 id="카프카-실행">
 <a class="anchor" href="#%EC%B9%B4%ED%94%84%EC%B9%B4-%EC%8B%A4%ED%96%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>카프카 실행</h2>
 
-<p>카프카를 실행하기 위해서는 주키퍼를 실행한 다음 카프카를 실행하여야합니다. 주키퍼의 경우 다운받은 카프카에 함께 포함되어 있습니다.</p>
+<p>카프카를 실행하기 위해서는 주키퍼를 실행한 다음 카프카를 실행하여야 합니다. 주키퍼의 경우 다운받은 카프카에 함께 포함되어 있습니다.</p>
 
 <p>우선 주키퍼를 실행해보도록 하겠습니다.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
@@ -232,8 +235,6 @@ vim config/server.properties
 
 <hr>
 
-<p><br></p>
-
 <h2 id="로컬과-카프카-통신-확인">
 <a class="anchor" href="#%EB%A1%9C%EC%BB%AC%EA%B3%BC-%EC%B9%B4%ED%94%84%EC%B9%B4-%ED%86%B5%EC%8B%A0-%ED%99%95%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>로컬과 카프카 통신 확인</h2>
 
@@ -249,7 +250,7 @@ WSL에서도 서버에 설치한 카프카와 자바의 버전과 동일하게 �
 </code></pre></div></div>
 
 <p><img src="/blog/images/kafka/kafkaset14.JPG" alt="">
-통신이 정상적으로 잘 된 것을 확인 할 수 있습니다.</p>
+통신이 정상적으로 잘 되는 것을 확인 할 수 있습니다.</p>
 
 <p><br></p>
 
