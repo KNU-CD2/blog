@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Kafka download and setting | fastpages</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Kafka download and setting" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="on-premise 유저 이름 바꾸기" />
+<meta property="og:description" content="on-premise 유저 이름 바꾸기" />
+<link rel="canonical" href="https://knu-cd2.github.io/blog/kafka/2022/05/15/kafka-download.html" />
+<meta property="og:url" content="https://knu-cd2.github.io/blog/kafka/2022/05/15/kafka-download.html" />
+<meta property="og:site_name" content="fastpages" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-15T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Kafka download and setting" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-05-15T00:00:00-05:00","datePublished":"2022-05-15T00:00:00-05:00","description":"on-premise 유저 이름 바꾸기","headline":"Kafka download and setting","mainEntityOfPage":{"@type":"WebPage","@id":"https://knu-cd2.github.io/blog/kafka/2022/05/15/kafka-download.html"},"url":"https://knu-cd2.github.io/blog/kafka/2022/05/15/kafka-download.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://knu-cd2.github.io/blog/feed.xml" title="fastpages" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">fastpages</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Kafka download and setting</h1><p class="page-description">on-premise 유저 이름 바꾸기</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-15T00:00:00-05:00" itemprop="datePublished">
+        May 15, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#Kafka">Kafka</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#카프카-다운로드-및-설정">카프카 다운로드 및 설정</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#카프카-다운로드">카프카 다운로드</a></li>
+<li class="toc-entry toc-h2"><a href="#자바-설치">자바 설치</a></li>
+<li class="toc-entry toc-h2"><a href="#카프카-사용-메모리-설정">카프카 사용 메모리 설정</a></li>
+<li class="toc-entry toc-h2"><a href="#serverproperties-설정">server.properties 설정</a></li>
+<li class="toc-entry toc-h2"><a href="#카프카-실행">카프카 실행</a></li>
+<li class="toc-entry toc-h2"><a href="#로컬과-카프카-통신-확인">로컬과 카프카 통신 확인</a></li>
+</ul>
+</li>
+</ul><h1 id="카프카-다운로드-및-설정">
+<a class="anchor" href="#%EC%B9%B4%ED%94%84%EC%B9%B4-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C-%EB%B0%8F-%EC%84%A4%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>카프카 다운로드 및 설정</h1>
+
+<h2 id="카프카-다운로드">
+<a class="anchor" href="#%EC%B9%B4%ED%94%84%EC%B9%B4-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>카프카 다운로드</h2>
+
+<p><img src="/blog/images/kafka/kafkaset1.JPG" alt="">
+<code class="language-plaintext highlighter-rouge">https://kafka.apache.org/downloads</code> <br>
+위 사이트로 가서 카프카 다운로드 링크를 복사하도록 하겠습니다.</p>
+
+<p><br></p>
+
+<p><img src="/blog/images/kafka/kafkaset2.JPG" alt=""></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://dlcdn.apache.org/kafka/3.1.0/kafka_2.13-3.1.0.tgz
+</code></pre></div></div>
+<p>앞에 숫자는 Scalar 버전이고, 뒤에 숫자는 카프카 버전입니다.
+저는 Scalar는 2.13버전, 카프카는 3.1.0 버전으로 진행하겠습니다.</p>
+
+<p><br></p>
+
+<p><img src="/blog/images/kafka/kafkaset3.JPG" alt="">
+<img src="/blog/images/kafka/kafkaset4.JPG" alt=""></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -xzvf kafka_2.13-3.1.0.tgz
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">tar</code> 명령어를 통해 압축을  풀어줍니다.</p>
+
+<p><br></p>
+
+<hr>
+
+<p><br></p>
+
+<h2 id="자바-설치">
+<a class="anchor" href="#%EC%9E%90%EB%B0%94-%EC%84%A4%EC%B9%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>자바 설치</h2>
+
+<p>카프카를 구동하기 위해서는 자바가 필요합니다. 자바도 설치해보도록 하겠습니다.</p>
+
+<p><img src="/blog/images/kafka/kafkaset5.JPG" alt="">
+<code class="language-plaintext highlighter-rouge">sudo apt install openjdk-8-jdk-headless</code> <br>
+저의 경우 자바 8 버전을 설치하였습니다.</p>
+
+<p><br></p>
+
+<p><img src="/blog/images/kafka/kafkaset6.JPG" alt="">
+설치가 완료되었고 테스트 할겸 java와 javac의 버전도 출력해보았습니다.</p>
+
+<p><br></p>
+
+<hr>
+
+<p><br></p>
+
+<h2 id="카프카-사용-메모리-설정">
+<a class="anchor" href="#%EC%B9%B4%ED%94%84%EC%B9%B4-%EC%82%AC%EC%9A%A9-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%84%A4%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>카프카 사용 메모리 설정</h2>
+
+<p>이 부분은 무료 클라우드 인스턴스를 사용하거나 온프래미스 구축시 장비의  메모리가 부족하신 분들만 진행하시면 됩니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">vi ~/.bashrc</code> 명령어를 사용해 배쉬쉘에 들어간 다음에</p>
+
+<p><code class="language-plaintext highlighter-rouge">export KAFKA_HEAP_OPTS="-Xmx400m -Xms400m"</code> 를 입력후 저장해줍니다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">source ./bashrc</code>를 해준다음 <code class="language-plaintext highlighter-rouge">echo $KAFKA_HEAP_OPTS</code>를 입력해 환경변수가 잘 지정되었는지 확인 해줍니다.</p>
+
+<p>저 같은 경우 메모리 8G 라즈베리파이를 이용했기에 이 과정은 넘어갔습니다.</p>
+
+<p><br></p>
+
+<hr>
+
+<p><br></p>
+
+<h2 id="serverproperties-설정">
+<a class="anchor" href="#serverproperties-%EC%84%A4%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>server.properties 설정</h2>
+
+<p>카프카를 로컬에서 통신하기 위해 server.properties를 설정해보겠습니다.</p>
+
+<p><img src="/blog/images/kafka/kafkaset7.JPG" alt=""></p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd kafka_2.13-3.1.0
+vim config/server.properties
+</code></pre></div></div>
+
+<p><br></p>
+
+<p><img src="/blog/images/kafka/kafkaset8.JPG" alt="">
+그 다음 <code class="language-plaintext highlighter-rouge">advertised.listeners</code>를 찾아서 주석을 풀어주고 설정을 합니다.</p>
+
+<p>저 같은 경우 여러대의 라즈베리파이가 외부아이피 하나에 연결되어 있기에 기존의 9092포트가 아닌 30014로 설정하였습니다. 아이피 부분은 클라우드의 인스턴스나 본인이 구축한 온프레미스 환경의 외부아이피를 입력하시면 됩니다.</p>
+
+<p><br></p>
+
+<p><img src="/blog/images/kafka/kafkaset9.JPG" alt="">
+그 후 포트포워딩도 진행하였습니다. 로컬과 통신을 위해 새로 추가한 규칙은 순위 16의 규칙입니다.</p>
+
+<p><br></p>
+
+<p><img src="/blog/images/kafka/kafkaset10.JPG" alt="">
+<img src="/blog/images/kafka/kafkaset11.JPG" alt="">
+추가적으로 카프카를 구동하기전에 <code class="language-plaintext highlighter-rouge">server.properties</code> 에서 <code class="language-plaintext highlighter-rouge">log.dirs</code>에 설정된 값에 해당하는 디렉토리가 없다면 생성해주도록 합니다.</p>
+
+<p><br></p>
+
+<hr>
+
+<p><br></p>
+
+<h2 id="카프카-실행">
+<a class="anchor" href="#%EC%B9%B4%ED%94%84%EC%B9%B4-%EC%8B%A4%ED%96%89" aria-hidden="true"><span class="octicon octicon-link"></span></a>카프카 실행</h2>
+
+<p>카프카를 실행하기 위해서는 주키퍼를 실행한 다음 카프카를 실행하여야합니다. 주키퍼의 경우 다운받은 카프카에 함께 포함되어 있습니다.</p>
+
+<p>우선 주키퍼를 실행해보도록 하겠습니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
+</code></pre></div></div>
+
+<p>그 다음으로 카프카를 실행해보도록 하겠습니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bin/kafka-server-start.sh -daemon config/server.properties
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">-daemon</code> 옵션은 백그라운드로 동작하도록 해주는 옵션입니다.</p>
+
+<p><img src="/blog/images/kafka/kafkaset12.JPG" alt="">
+실행을 한 후에 <code class="language-plaintext highlighter-rouge">jps</code>를 커맨드라인에 입력하면 위와 같이 <code class="language-plaintext highlighter-rouge">QuorumPeerMain</code>(주키퍼) 와 <code class="language-plaintext highlighter-rouge">Kafka</code>가 동작 중인 것을 확인 할 수 있습니다.</p>
+
+<p><br></p>
+
+<hr>
+
+<p><br></p>
+
+<h2 id="로컬과-카프카-통신-확인">
+<a class="anchor" href="#%EB%A1%9C%EC%BB%AC%EA%B3%BC-%EC%B9%B4%ED%94%84%EC%B9%B4-%ED%86%B5%EC%8B%A0-%ED%99%95%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>로컬과 카프카 통신 확인</h2>
+
+<p>저의 로컬 환경은 Window10 에서 WSL을 활용하였습니다.</p>
+
+<p><img src="/blog/images/kafka/kafkaset13.JPG" alt="">
+WSL에서도 서버에 설치한 카프카와 자바의 버전과 동일하게 카프카와 자바를 설치해줍니다. 위에서 설치시 활용한 커맨드를 그대로 입력하면 됩니다</p>
+
+<p><br></p>
+
+<p>그 후 정상적으로 통신이 가능한지 테스트를 진행합니다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bin/kafka-broker-api-versions.sh --bootstrap-server 59.23.xxx.xxx:30014
+</code></pre></div></div>
+
+<p><img src="/blog/images/kafka/kafkaset14.JPG" alt="">
+통신이 정상적으로 잘 된 것을 확인 할 수 있습니다.</p>
+
+<p><br></p>
+
+<hr>
+
+  </div><a class="u-url" href="/blog/kafka/2022/05/15/kafka-download.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>An easy to use blogging platform with support for Jupyter Notebooks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/fastai" target="_blank" title="fastai"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
