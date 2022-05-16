@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+@import url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Bold.woff");
 .highlight .c { color: #998; font-style: italic; }
 
 .highlight .err { color: #a61717; background-color: #e3d2d2; }
@@ -343,7 +345,7 @@ h3, h4 { margin-top: 1.5rem !important; }
 
 p { margin-top: 1rem !important; margin-bottom: 1rem !important; }
 
-h1, h2, h3, h4 { font-weight: normal !important; margin-bottom: 0.5rem !important; }
+h1, h2, h3, h4 { font-weight: normal; margin-bottom: 0.5rem !important; }
 
 h1 code, h2 code, h3 code, h4 code { font-size: 100%; }
 
@@ -483,5 +485,15 @@ pre code { font-size: 15px !important; }
 .highlight .gd { color: #ff5555; }
 
 p code { font-size: 19px; }
+
+.page-content { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: Pretendard, "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif !important; }
+
+.post-content p, .post-content li { font-size: 18px; color: rgba(0, 0, 0, 0.87); }
+
+h1, h2, h3 { font-family: IBMPlexSansKR-Regular; font-weight: 700; }
+
+p code { font-size: 18px; }
+
+code { background-color: #E9ECEF; }
 
 /*# sourceMappingURL=style.css.map */

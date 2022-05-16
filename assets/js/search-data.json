@@ -215,8 +215,8 @@
 
   
       ,"page1": {
-          "title": "About Me",
-          "content": "This website is powered by fastpages 1. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
+          "title": "About Us",
+          "content": "Kyungpook National University (KNU) . 종합설계프로젝트2 with CSP MOBILE LAB . 이 블로그는 Elasticstack의 오픈소스 생태계에 기여하기 위해 만들어졌습니다. . [Member] . 조동현 @JoDongHyuen | 윤우혁 @squareyun | 이준배 @junnbae | 신현석 @quf265 | .",
           "url": "https://knu-cd2.github.io/blog/about/",
           "relUrl": "/about/",
           "date": ""
