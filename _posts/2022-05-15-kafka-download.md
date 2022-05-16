@@ -1,12 +1,16 @@
 ---
 toc: true
 layout: post
-description: on-premise 유저 이름 바꾸기
+description: 카프카 다운로드 및 설정
 categories: [Kafka]
 title: Kafka download and setting
 ---
 
 # 카프카 다운로드 및 설정
+
+__서버에 카프카 다운로드 후 로컬과 통신을 설정하는 과정입니다.__
+
+___
 
 ## 카프카 다운로드
 
@@ -36,14 +40,14 @@ tar -xzvf kafka_2.13-3.1.0.tgz
 
 -------
 
-<br/>
-
 ## 자바 설치
 
 카프카를 구동하기 위해서는 자바가 필요합니다. 자바도 설치해보도록 하겠습니다.
 
 ![]({{site.baseurl}}/images/kafka/kafkaset5.JPG)
-`sudo apt install openjdk-8-jdk-headless` <br/>
+```
+sudo apt install openjdk-8-jdk-headless
+```
 저의 경우 자바 8 버전을 설치하였습니다. 
 
 <br/>
@@ -55,26 +59,21 @@ tar -xzvf kafka_2.13-3.1.0.tgz
 
 -------
 
-<br/>
-
 ## 카프카 사용 메모리 설정
 
 이 부분은 무료 클라우드 인스턴스를 사용하거나 온프래미스 구축시 장비의  메모리가 부족하신 분들만 진행하시면 됩니다.
 
-`vi ~/.bashrc` 명령어를 사용해 배쉬쉘에 들어간 다음에
+1. `vi ~/.bashrc` 명령어를 사용해 배쉬쉘에 들어간 다음에
 
+2. `export KAFKA_HEAP_OPTS="-Xmx400m -Xms400m"` 를 입력후 저장해줍니다.
 
-`export KAFKA_HEAP_OPTS="-Xmx400m -Xms400m"` 를 입력후 저장해줍니다.
-
-`source ./bashrc`를 해준다음 `echo $KAFKA_HEAP_OPTS`를 입력해 환경변수가 잘 지정되었는지 확인 해줍니다.
+3. `source ./bashrc`를 해준다음 `echo $KAFKA_HEAP_OPTS`를 입력해 환경변수가 잘 지정되었는지 확인 해줍니다.
 
 저 같은 경우 메모리 8G 라즈베리파이를 이용했기에 이 과정은 넘어갔습니다.
 
 <br/>
 
 -----
-
-<br/>
 
 ## server.properties 설정
 
@@ -108,11 +107,9 @@ vim config/server.properties
 
 ----
 
-<br/>
-
 ## 카프카 실행
 
-카프카를 실행하기 위해서는 주키퍼를 실행한 다음 카프카를 실행하여야합니다. 주키퍼의 경우 다운받은 카프카에 함께 포함되어 있습니다.
+카프카를 실행하기 위해서는 주키퍼를 실행한 다음 카프카를 실행하여야 합니다. 주키퍼의 경우 다운받은 카프카에 함께 포함되어 있습니다.
 
 우선 주키퍼를 실행해보도록 하겠습니다.
 ```
@@ -132,8 +129,6 @@ bin/kafka-server-start.sh -daemon config/server.properties
 
 ---
 
-<br/>
-
 ## 로컬과 카프카 통신 확인
 
 저의 로컬 환경은 Window10 에서 WSL을 활용하였습니다.
@@ -149,7 +144,7 @@ bin/kafka-broker-api-versions.sh --bootstrap-server 59.23.xxx.xxx:30014
 ```
 
 ![]({{site.baseurl}}/images/kafka/kafkaset14.JPG)
-통신이 정상적으로 잘 된 것을 확인 할 수 있습니다.
+통신이 정상적으로 잘 되는 것을 확인 할 수 있습니다.
 
 <br/>
 
