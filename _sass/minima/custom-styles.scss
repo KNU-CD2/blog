@@ -22,13 +22,11 @@
     color: rgba(0, 0, 0, 0.87);
  }
 
- @font-face {
-    font-family: 'IBMPlexSansKR-Bold';
-    src: url("../fonts/IBMPlexSansKR-Bold.ttf")
-}
+ @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap');
 
 h1, h2, h3 {
-     font-family: IBMPlexSansKR-Bold;
+     font-family: 'IBM Plex Sans KR', sans-serif;
+     font-weight: 700;
 }
 
 p code {
