@@ -9,3 +9,29 @@
 
 // If you want to turn off dark background for syntax highlighting, comment or delete the below line.
 @import "minima/fastpages-dracula-highlight"; 
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+.page-content {
+    -webkit-font-smoothing: antialiased !important;
+    text-rendering: optimizeLegibility !important;
+    font-family: Pretendard, "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif !important;
+}
+
+.post-content p, .post-content li {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.87);
+ }
+
+ @import url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/IBMPlexSansKR-Bold.woff');
+ h1, h2, h3 {
+     font-family: IBMPlexSansKR-Regular;
+     font-weight: 700;
+}
+
+p code {
+    font-size: 18px;
+}
+
+code {
+ background-color: #E9ECEF;
+}

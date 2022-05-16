@@ -1,11 +1,17 @@
 ---
 layout: page
-title: About Me
+title: About Us
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+Kyungpook National University (KNU)
 
+종합설계프로젝트2 with CSP MOBILE LAB
 
+이 블로그는 Elasticstack의 오픈소스 생태계에 기여하기 위해 만들어졌습니다.
 
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+[Member]
+- 조동현 [@JoDongHyuen](https://github.com/JoDongHyuen)
+- 윤우혁 [@squareyun](https://github.com/squareyun)
+- 이준배 [@junnbae](https://github.com/junnbae)
+- 신현석 [@quf265](https://github.com/quf265)
