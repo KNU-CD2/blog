@@ -29,7 +29,7 @@ server.3={IP 주소}:2888:3888
 ```
 
 ![]({{site.baseurl}}/images/kafka/kafka1.JPG)
-저 같은 경우 라즈베리파이가 공유기 하나에 연결되어 있어서 내부 IP로 진행하였습니다.
+저 같은 경우 라즈베리파이가 공유기 하나에 연결되어 있어서 내부 IP로 진행하였습니다. 위 사진에선 컴퓨터 한대에서만 설정한 것 처럼 보이는데 __모든 컴퓨터에 다 설정해주어야 합니다.__
 
 <br/>
 
@@ -52,6 +52,7 @@ echo 3 > /tmp/zookeeper/myid
 <br/>
 
 ```
+주키퍼 실행
 bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
 ```
 마지막으로 모든 컴퓨터에 해당 커맨드를 입력하여 zookeeper를 실행시켜 줍니다. -daemon 옵션을 주면 백그라운드로 실행하게 됩니다.
@@ -62,8 +63,8 @@ bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
 
 ## Kafka 설정 및 실행
 
-{% include info.html text="카프카 실행 시 에러가 나면 아래 링크를 참조해주세요" %} <br/>
-[ERROR Exiting Kafka due to fatal exception (kafka.Kafka$)]()
+{% include info.html text="카프카 실행 시 에러가 나면 아래 링크를 참조해주세요" %}
+[ERROR Exiting Kafka due to fatal exception (kafka.Kafka$)](https://knu-cd2.github.io/blog/kafka/2022/05/19/kafka-error1.html)
 
 <br/>
 
@@ -78,7 +79,7 @@ vim config/server.properties
 <br/>
 
 ![]({{site.baseurl}}/images/kafka/kafka4.JPG)
-`advertised.listeners` 옵션을 찾아서 listen할 아이피와 포트를 설정해주도록 합니다. 일단은 로컬과의 통신을 고려하지 않고 진행하기 때문에 위와 같이 설정하였습니다. 저 같은 경우 `listeners` 옵션 주석을 풀었는데, 이 옵션은 그대로 두셔도 됩니다.
+`advertised.listeners` 옵션을 찾아서 listen할 아이피와 포트를 설정해주도록 합니다. 일단은 외부와의 통신을 고려하지 않고 진행하기 때문에 위와 같이 설정하였습니다. 저 같은 경우 `listeners` 옵션 주석이 풀려있는데 이 옵션은 주석을 풀지 않고 그대로 두셔도 됩니다.
 
 <br/>
 
@@ -86,9 +87,10 @@ vim config/server.properties
 마지막으로 `zookeeper.connect`에 zookeeper에서 클러스터를 구성한 노드(컴퓨터)들의 IP 주소와 포트를 적어줍니다.
 
 ```
+카프카 실행
 bin/kafka-server-start.sh -daemon config/server.properties
 ```
-그리고 실행을 시켜줍니다.
+그리고 모든 컴퓨터에서 카프카를 실행을 시켜줍니다.
 
 종료하는 방법은 `bin/kafka-server-stop.sh` 커맨드를 날려서 종료해주면 됩니다.
 
