@@ -47,7 +47,7 @@ print(client.info())
 
 ### 실행 결과
 
-![]({{site.baseurl}}/images/kafka/done.png)
+![]({{site.baseurl}}/images/elasticsearch-python/done.png)
 
 ---
 
@@ -62,6 +62,8 @@ lastic_transport.TlsError: TLS error caused by: TlsError(TLS error caused by: SS
 - ca_certs에 입력한 인증서 경로가 잘못되었다는 에러입니다.
 - 파일 위치를 다시 확인해주시고, 특히 윈도우 환경에서는 경로 작성에 유의하세요.
 
+<br/>
+
 ### self signed certificate in certificate chain
 
 ```
@@ -71,11 +73,14 @@ curl: (60) SSL certificate problem: self signed certificate in certificate chain
 - 저의 경우는 인증서에 문제가 있을 때 발생하였습니다.
 - 정확한 인증서가 맞는지 재확인 해주시고, 인증서 파일이 없다면 [이 페이지](https://www.lesstif.com/gitbook/https-ssl-curl-web-browser-16744456.html)를 통해 인증서를 발급하세요.
 
-### ⚠️ 서버가 외부에 있는 경우 해당 서버의 인증서파일을 가져와도 실행이 되지 않습니다. ⚠️
+<br/>
 
+### ⚠️ 서버가 외부에 있는 경우 ⚠️
+
+- 엘라스틱서치 서버가 외부에 있는 경우 인증서 파일을 연결해도 실행이 되지 않습니다. 
 - 외부 클라이언트에서 엘라스틱서치 서버로 접근할 때 http.p12 인증서가 기관이 인증하지 않은 인증서이므로 외부에서는 신뢰할 수 없습니다.
 - 외부 클라이언트에서 접근하기 위해서는 `서버 IP를 DNS로 등록`, `도메인 정보가 포함되어있는 CA인증서`가 필요합니다.
-- 추가적인 사항은 [이 블로그](https://acdongpgm.tistory.com/263)를 참고하세요.
+- 추가적인 설명은 [이 블로그](https://acdongpgm.tistory.com/263)를 참고하세요.
 
 ---
 
@@ -121,7 +126,7 @@ for hit in resp['hits']['hits']:
 
 ### 실행 결과
 
-![]({{site.baseurl}}/images/kafka/done2.png)
+![]({{site.baseurl}}/images/elasticsearch-python/done2.png)
 
 ---
 
