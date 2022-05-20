@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Elasticsearch Python Client Connecting | KNU-CD2</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Elasticsearch Python Client Connecting" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="파이썬에서 엘라스틱서치 클라이언트 연결하는 방법" />
+<meta property="og:description" content="파이썬에서 엘라스틱서치 클라이언트 연결하는 방법" />
+<link rel="canonical" href="https://knu-cd2.github.io/blog/elasticsearch/2022/05/20/elasticsearch-python.html" />
+<meta property="og:url" content="https://knu-cd2.github.io/blog/elasticsearch/2022/05/20/elasticsearch-python.html" />
+<meta property="og:site_name" content="KNU-CD2" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-20T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Elasticsearch Python Client Connecting" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-05-20T00:00:00-05:00","datePublished":"2022-05-20T00:00:00-05:00","description":"파이썬에서 엘라스틱서치 클라이언트 연결하는 방법","headline":"Elasticsearch Python Client Connecting","mainEntityOfPage":{"@type":"WebPage","@id":"https://knu-cd2.github.io/blog/elasticsearch/2022/05/20/elasticsearch-python.html"},"url":"https://knu-cd2.github.io/blog/elasticsearch/2022/05/20/elasticsearch-python.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://knu-cd2.github.io/blog/feed.xml" title="KNU-CD2" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">KNU-CD2</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Us</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Elasticsearch Python Client Connecting</h1><p class="page-description">파이썬에서 엘라스틱서치 클라이언트 연결하는 방법</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-20T00:00:00-05:00" itemprop="datePublished">
+        May 20, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#Elasticsearch">Elasticsearch</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#파이썬-엘라스틱서치-클라이언트">파이썬 엘라스틱서치 클라이언트</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#라이브러리-설치">라이브러리 설치</a></li>
+<li class="toc-entry toc-h2"><a href="#파이썬-연결-확인">파이썬 연결 확인</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#실행-결과">실행 결과</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#에러-종류">에러 종류</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#no-such-file-or-directory">No such file or directory</a></li>
+<li class="toc-entry toc-h3"><a href="#self-signed-certificate-in-certificate-chain">self signed certificate in certificate chain</a></li>
+<li class="toc-entry toc-h3"><a href="#️-서버가-외부에-있는-경우-해당-서버의-인증서파일을-가져와도-실행이-되지-않습니다-️">⚠️ 서버가 외부에 있는 경우 해당 서버의 인증서파일을 가져와도 실행이 되지 않습니다. ⚠️</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#인덱스-생성-및-조회">인덱스 생성 및 조회</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#실행-결과-1">실행 결과</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#더-읽을거리">더 읽을거리</a></li>
+</ul><h1 id="파이썬-엘라스틱서치-클라이언트">
+<a class="anchor" href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%97%98%EB%9D%BC%EC%8A%A4%ED%8B%B1%EC%84%9C%EC%B9%98-%ED%81%B4%EB%9D%BC%EC%9D%B4%EC%96%B8%ED%8A%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>파이썬 엘라스틱서치 클라이언트</h1>
+
+<p>파이썬에서 엘라스틱서치 클라이언트를 사용하는 방법을 알아보겠습니다.</p>
+
+<hr>
+
+<h2 id="라이브러리-설치">
+<a class="anchor" href="#%EB%9D%BC%EC%9D%B4%EB%B8%8C%EB%9F%AC%EB%A6%AC-%EC%84%A4%EC%B9%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>라이브러리 설치</h2>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip <span class="nb">install </span>elasticsearch
+</code></pre></div></div>
+
+<ul>
+  <li>pip 명령어를 이용해 엘라스틱서치 라이브러리를 다운로드 받습니다.</li>
+</ul>
+
+<hr>
+
+<h2 id="파이썬-연결-확인">
+<a class="anchor" href="#%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EC%97%B0%EA%B2%B0-%ED%99%95%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>파이썬 연결 확인</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">Elasticsearch</span>
+
+<span class="c1"># Password for the 'elastic' user generated by Elasticsearch
+</span><span class="n">ELASTIC_PASSWORD</span> <span class="o">=</span> <span class="s">"yourpassword"</span>
+
+<span class="c1"># Create the client instance
+</span><span class="n">client</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">(</span>
+    <span class="s">"https://localhost:9200"</span><span class="p">,</span>
+    <span class="n">ca_certs</span><span class="o">=</span><span class="s">"/Users/squareyun/Documents/utility/elasticsearch-8.1.0/config/certs/http_ca.crt"</span><span class="p">,</span>
+    <span class="n">basic_auth</span><span class="o">=</span><span class="p">(</span><span class="s">"elastic"</span><span class="p">,</span> <span class="n">ELASTIC_PASSWORD</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># Successful response!
+</span><span class="k">print</span><span class="p">(</span><span class="n">client</span><span class="p">.</span><span class="n">info</span><span class="p">())</span>
+<span class="c1"># {'name': 'instance-0000000000', 'cluster_name': ...}
+</span></code></pre></div></div>
+
+<ul>
+  <li>위와 동일하게 py 파일을 작성하여 실행시켜 보세요.</li>
+  <li>ca_certs에서 http 인증서가 있는 경로를 올바르게 작성해야 합니다.</li>
+</ul>
+
+<h3 id="실행-결과">
+<a class="anchor" href="#%EC%8B%A4%ED%96%89-%EA%B2%B0%EA%B3%BC" aria-hidden="true"><span class="octicon octicon-link"></span></a>실행 결과</h3>
+
+<p><img src="/blog/images/kafka/done.png" alt=""></p>
+
+<hr>
+
+<h2 id="에러-종류">
+<a class="anchor" href="#%EC%97%90%EB%9F%AC-%EC%A2%85%EB%A5%98" aria-hidden="true"><span class="octicon octicon-link"></span></a>에러 종류</h2>
+
+<h3 id="no-such-file-or-directory">
+<a class="anchor" href="#no-such-file-or-directory" aria-hidden="true"><span class="octicon octicon-link"></span></a>No such file or directory</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lastic_transport.TlsError: TLS error caused by: TlsError(TLS error caused by: SSLError([Errno 2] No such file or directory))
+</code></pre></div></div>
+
+<ul>
+  <li>ca_certs에 입력한 인증서 경로가 잘못되었다는 에러입니다.</li>
+  <li>파일 위치를 다시 확인해주시고, 특히 윈도우 환경에서는 경로 작성에 유의하세요.</li>
+</ul>
+
+<h3 id="self-signed-certificate-in-certificate-chain">
+<a class="anchor" href="#self-signed-certificate-in-certificate-chain" aria-hidden="true"><span class="octicon octicon-link"></span></a>self signed certificate in certificate chain</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl: (60) SSL certificate problem: self signed certificate in certificate chain
+</code></pre></div></div>
+
+<ul>
+  <li>저의 경우는 인증서에 문제가 있을 때 발생하였습니다.</li>
+  <li>정확한 인증서가 맞는지 재확인 해주시고, 인증서 파일이 없다면 <a href="https://www.lesstif.com/gitbook/https-ssl-curl-web-browser-16744456.html">이 페이지</a>를 통해 인증서를 발급하세요.</li>
+</ul>
+
+<h3 id="️-서버가-외부에-있는-경우-해당-서버의-인증서파일을-가져와도-실행이-되지-않습니다-️">
+<a class="anchor" href="#%EF%B8%8F-%EC%84%9C%EB%B2%84%EA%B0%80-%EC%99%B8%EB%B6%80%EC%97%90-%EC%9E%88%EB%8A%94-%EA%B2%BD%EC%9A%B0-%ED%95%B4%EB%8B%B9-%EC%84%9C%EB%B2%84%EC%9D%98-%EC%9D%B8%EC%A6%9D%EC%84%9C%ED%8C%8C%EC%9D%BC%EC%9D%84-%EA%B0%80%EC%A0%B8%EC%99%80%EB%8F%84-%EC%8B%A4%ED%96%89%EC%9D%B4-%EB%90%98%EC%A7%80-%EC%95%8A%EC%8A%B5%EB%8B%88%EB%8B%A4-%EF%B8%8F" aria-hidden="true"><span class="octicon octicon-link"></span></a>⚠️ 서버가 외부에 있는 경우 해당 서버의 인증서파일을 가져와도 실행이 되지 않습니다. ⚠️</h3>
+
+<ul>
+  <li>외부 클라이언트에서 엘라스틱서치 서버로 접근할 때 http.p12 인증서가 기관이 인증하지 않은 인증서이므로 외부에서는 신뢰할 수 없습니다.</li>
+  <li>외부 클라이언트에서 접근하기 위해서는 <code class="language-plaintext highlighter-rouge">서버 IP를 DNS로 등록</code>, <code class="language-plaintext highlighter-rouge">도메인 정보가 포함되어있는 CA인증서</code>가 필요합니다.</li>
+  <li>추가적인 사항은 <a href="https://acdongpgm.tistory.com/263">이 블로그</a>를 참고하세요.</li>
+</ul>
+
+<hr>
+
+<h2 id="인덱스-생성-및-조회">
+<a class="anchor" href="#%EC%9D%B8%EB%8D%B1%EC%8A%A4-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%A1%B0%ED%9A%8C" aria-hidden="true"><span class="octicon octicon-link"></span></a>인덱스 생성 및 조회</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">elasticsearch</span> <span class="kn">import</span> <span class="n">Elasticsearch</span>
+
+<span class="n">ELASTIC_PASSWORD</span> <span class="o">=</span> <span class="s">"yourpassword"</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">Elasticsearch</span><span class="p">(</span>
+    <span class="s">"https://localhost:9200"</span><span class="p">,</span>
+    <span class="n">ca_certs</span><span class="o">=</span><span class="s">"/Users/squareyun/Documents/utility/elasticsearch-8.1.0/config/certs/http_ca.crt"</span><span class="p">,</span>
+    <span class="n">basic_auth</span><span class="o">=</span><span class="p">(</span><span class="s">"elastic"</span><span class="p">,</span> <span class="n">ELASTIC_PASSWORD</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># doc 객체 생성
+</span><span class="n">doc</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">'author'</span><span class="p">:</span> <span class="s">'kimchy'</span><span class="p">,</span>
+    <span class="s">'text'</span><span class="p">:</span> <span class="s">'Elasticsearch: cool. bonsai cool.'</span><span class="p">,</span>
+    <span class="s">'timestamp'</span><span class="p">:</span> <span class="n">datetime</span><span class="p">.</span><span class="n">now</span><span class="p">(),</span>
+<span class="p">}</span>
+
+<span class="c1"># 인덱스 생성
+</span><span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s">"test-index"</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">document</span><span class="o">=</span><span class="n">doc</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'result'</span><span class="p">])</span>
+
+<span class="c1"># 인덱스 조회
+</span><span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s">"test-index"</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">resp</span><span class="p">[</span><span class="s">'_source'</span><span class="p">])</span>
+
+<span class="n">client</span><span class="p">.</span><span class="n">indices</span><span class="p">.</span><span class="n">refresh</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s">"test-index"</span><span class="p">)</span>
+
+<span class="n">resp</span> <span class="o">=</span> <span class="n">client</span><span class="p">.</span><span class="n">search</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s">"test-index"</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="p">{</span><span class="s">"match_all"</span><span class="p">:</span> <span class="p">{}})</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"Got %d Hits:"</span> <span class="o">%</span> <span class="n">resp</span><span class="p">[</span><span class="s">'hits'</span><span class="p">][</span><span class="s">'total'</span><span class="p">][</span><span class="s">'value'</span><span class="p">])</span>
+<span class="k">for</span> <span class="n">hit</span> <span class="ow">in</span> <span class="n">resp</span><span class="p">[</span><span class="s">'hits'</span><span class="p">][</span><span class="s">'hits'</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"%(timestamp)s %(author)s: %(text)s"</span> <span class="o">%</span> <span class="n">hit</span><span class="p">[</span><span class="s">"_source"</span><span class="p">])</span>
+</code></pre></div></div>
+
+<ul>
+  <li>인덱스를 생성하고 조회하는 예제입니다.</li>
+  <li>document를 생성할 때 시간 정보를 넣기 위해 datetime 라이브러리를 사용합니다.</li>
+</ul>
+
+<h3 id="실행-결과-1">
+<a class="anchor" href="#%EC%8B%A4%ED%96%89-%EA%B2%B0%EA%B3%BC-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>실행 결과</h3>
+
+<p><img src="/blog/images/kafka/done2.png" alt=""></p>
+
+<hr>
+
+<h1 id="더-읽을거리">
+<a class="anchor" href="#%EB%8D%94-%EC%9D%BD%EC%9D%84%EA%B1%B0%EB%A6%AC" aria-hidden="true"><span class="octicon octicon-link"></span></a>더 읽을거리</h1>
+<ul>
+  <li>https://www.elastic.co/guide/en/elasticsearch/client/python-api/8.2/connecting.html</li>
+  <li>https://elasticsearch-py.readthedocs.io/en/v8.2.0/</li>
+  <li>https://www.lesstif.com/gitbook/https-ssl-curl-web-browser-16744456.html</li>
+</ul>
+
+  </div><a class="u-url" href="/blog/elasticsearch/2022/05/20/elasticsearch-python.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>To contribute to the open source ecosystem of elastic stacks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/KNU-CD2" target="_blank" title="KNU-CD2"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
