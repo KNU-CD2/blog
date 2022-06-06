@@ -48,7 +48,7 @@ print(client.info())
 
 ### 실행 결과
 
-![]({{site.baseurl}}/images/elasticsearch-python/done.png)
+![]({{site.baseurl}}/images/2022-05-20-elasticsearch-python/done.png)
 
 ---
 
@@ -127,7 +127,7 @@ for hit in resp['hits']['hits']:
 
 ### 실행 결과
 
-![]({{site.baseurl}}/images/elasticsearch-python/done2.png)
+![]({{site.baseurl}}/images/2022-05-20-elasticsearch-python/done2.png)
 
 ---
 

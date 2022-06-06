@@ -22,14 +22,14 @@ curl localhost:9200
 이 커맨드를 실행하면 클러스터의 상태 정보를 알 수 있습니다.
 먼저 이 커맨드를 콘솔에 입력해보겠습니다.
 
-![]({{site.baseurl}}/images/curl1.PNG)
+![]({{site.baseurl}}/images/2022-05-16-about-curl/curl1.PNG)
 
 Elasticsearch가 실행 중이지 않으면
 Connection refuesed 에러가 발생하므로 Elasticsearch를 꼭 가동해주세요.
 
 다시 Elasticsearch가 가동 중인 커맨드를 입력하겠습니다.
 
-![]({{site.baseurl}}/images/curl2.PNG)
+![]({{site.baseurl}}/images/2022-05-16-about-curl/curl2.PNG)
 
 이번에는 Empty reply from server 라며
 클러스터의 상태정보를 알려주지 않습니다.
@@ -50,7 +50,7 @@ ID: elastic
 Password: changeme
 ID와 Password는 사용 중인 ID와 Password를 입력하셔야 합니다.
 
-![]({{site.baseurl}}/images/curl3.PNG)
+![]({{site.baseurl}}/images/2022-05-16-about-curl/curl3.PNG)
 
 아까와는 다르게 클러스터의 상태를 조회할 수 있습니다.
 
@@ -65,6 +65,6 @@ ID와 Password는 사용 중인 ID와 Password를 입력하셔야 합니다.
 curl 커맨드 중간에 http_ca.crt의 경로를 입력해야 합니다.
 http_ca.crt의 상대경로가 아닌 절대경로를 입력하시면 됩니다.
 
-![]({{site.baseurl}}/images/curl4.PNG)
+![]({{site.baseurl}}/images/2022-05-16-about-curl/curl4.PNG)
 
 이 커맨드 또한 아까 전과 같은 클러스터의 상태 정보를 알아낼 수 있습니다.

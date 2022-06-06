@@ -46,12 +46,12 @@ java.nio.file.NoSuchFileException: -
 {% include info.html text="해당 방법이 정확한 방법이 아닐 수 있습니다" %}
 
 __before__
-![]({{site.baseurl}}/images/kafka/kafkaerror11.JPG)
+![]({{site.baseurl}}/images/2022-05-19-kafka-error1/kafkaerror1.JPG)
 
 <br/>
 
 __after__
-![]({{site.baseurl}}/images/kafka/kafkaerror12.JPG)
+![]({{site.baseurl}}/images/2022-05-19-kafka-error1/kafkaerror2.JPG)
 
 <br/>
 

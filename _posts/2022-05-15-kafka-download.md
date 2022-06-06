@@ -15,13 +15,13 @@ ___
 
 ## 카프카 다운로드
 
-![]({{site.baseurl}}/images/kafka/kafkaset1.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset1.JPG)
 `https://kafka.apache.org/downloads` <br/>
 위 사이트로 가서 카프카 다운로드 링크를 복사하도록 하겠습니다.
 
 <br/>
 
-![]({{site.baseurl}}/images/kafka/kafkaset2.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset2.JPG)
 ```
 wget https://dlcdn.apache.org/kafka/3.1.0/kafka_2.13-3.1.0.tgz
 ```
@@ -30,8 +30,8 @@ wget https://dlcdn.apache.org/kafka/3.1.0/kafka_2.13-3.1.0.tgz
 
 <br/>
 
-![]({{site.baseurl}}/images/kafka/kafkaset3.JPG)
-![]({{site.baseurl}}/images/kafka/kafkaset4.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset3.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset4.JPG)
 ```
 tar -xzvf kafka_2.13-3.1.0.tgz
 ```
@@ -45,7 +45,7 @@ tar -xzvf kafka_2.13-3.1.0.tgz
 
 카프카를 구동하기 위해서는 자바가 필요합니다. 자바도 설치해보도록 하겠습니다.
 
-![]({{site.baseurl}}/images/kafka/kafkaset5.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset5.JPG)
 ```
 sudo apt install openjdk-8-jdk-headless
 ```
@@ -53,7 +53,7 @@ sudo apt install openjdk-8-jdk-headless
 
 <br/>
 
-![]({{site.baseurl}}/images/kafka/kafkaset6.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset6.JPG)
 설치가 완료되었고 테스트 할겸 java와 javac의 버전도 출력해보았습니다.
 
 <br/>
@@ -80,7 +80,7 @@ sudo apt install openjdk-8-jdk-headless
 
 카프카를 로컬에서 통신하기 위해 server.properties를 설정해보겠습니다.
 
-![]({{site.baseurl}}/images/kafka/kafkaset7.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset7.JPG)
 ```
 cd kafka_2.13-3.1.0
 vim config/server.properties
@@ -88,20 +88,20 @@ vim config/server.properties
 
 <br/>
 
-![]({{site.baseurl}}/images/kafka/kafkaset8.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset8.JPG)
 그 다음 `advertised.listeners`를 찾아서 주석을 풀어주고 설정을 합니다.
 
 저 같은 경우 여러대의 라즈베리파이가 외부아이피 하나에 연결되어 있기에 기존의 9092포트가 아닌 30014로 설정하였습니다. 아이피 부분은 클라우드의 인스턴스나 본인이 구축한 온프레미스 환경의 외부아이피를 입력하시면 됩니다.
 
 <br/>
 
-![]({{site.baseurl}}/images/kafka/kafkaset9.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset9.JPG)
 그 후 포트포워딩도 진행하였습니다. 로컬과 통신을 위해 새로 추가한 규칙은 순위 16의 규칙입니다.
 
 <br/>
 
-![]({{site.baseurl}}/images/kafka/kafkaset10.JPG)
-![]({{site.baseurl}}/images/kafka/kafkaset11.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset10.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset11.JPG)
 추가적으로 카프카를 구동하기전에 `server.properties` 에서 `log.dirs`에 설정된 값에 해당하는 디렉토리가 없다면 생성해주도록 합니다.
 
 <br/>
@@ -123,7 +123,7 @@ bin/kafka-server-start.sh -daemon config/server.properties
 ```
 `-daemon` 옵션은 백그라운드로 동작하도록 해주는 옵션입니다.
 
-![]({{site.baseurl}}/images/kafka/kafkaset12.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset12.JPG)
 실행을 한 후에 `jps`를 커맨드라인에 입력하면 위와 같이 `QuorumPeerMain`(주키퍼) 와 `Kafka`가 동작 중인 것을 확인 할 수 있습니다.
 
 <br/>
@@ -134,7 +134,7 @@ bin/kafka-server-start.sh -daemon config/server.properties
 
 저의 로컬 환경은 Window10 에서 WSL을 활용하였습니다.
 
-![]({{site.baseurl}}/images/kafka/kafkaset13.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset13.JPG)
 WSL에서도 서버에 설치한 카프카와 자바의 버전과 동일하게 카프카와 자바를 설치해줍니다. 위에서 설치시 활용한 커맨드를 그대로 입력하면 됩니다
 
 <br/>
@@ -144,7 +144,7 @@ WSL에서도 서버에 설치한 카프카와 자바의 버전과 동일하게 �
 bin/kafka-broker-api-versions.sh --bootstrap-server 59.23.xxx.xxx:30014
 ```
 
-![]({{site.baseurl}}/images/kafka/kafkaset14.JPG)
+![]({{site.baseurl}}/images/2022-05-15-kafka-download/kafkaset14.JPG)
 통신이 정상적으로 잘 되는 것을 확인 할 수 있습니다.
 
 <br/>

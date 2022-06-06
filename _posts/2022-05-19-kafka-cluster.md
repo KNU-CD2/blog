@@ -29,7 +29,7 @@ server.2={IP 주소}:2888:3888
 server.3={IP 주소}:2888:3888
 ```
 
-![]({{site.baseurl}}/images/kafka/kafka1.JPG)
+![]({{site.baseurl}}/images/2022-05-19-kafka-cluster/kafka1.JPG)
 저 같은 경우 라즈베리파이가 공유기 하나에 연결되어 있어서 내부 IP로 진행하였습니다. 위 사진에선 컴퓨터 한대에서만 설정한 것 처럼 보이는데 __모든 컴퓨터에 다 설정해주어야 합니다.__
 
 <br/>
@@ -45,7 +45,7 @@ echo 2 > /tmp/zookeeper/myid
 echo 3 > /tmp/zookeeper/myid
 ```
 
-![]({{site.baseurl}}/images/kafka/kafka2.JPG)
+![]({{site.baseurl}}/images/2022-05-19-kafka-cluster/kafka2.JPG)
 그 다음 dataDir의 경로에 해당 클러스터가 몇 번 클러스터인지 설정해줍니다. 만약 tmp나 zookeeper 폴더가 없다면 `mkdir` 커맨드로 생성해주도록 합니다. 그리고 __myid는 겹쳐서는 안됩니다.__
  
 이렇게 하면 zookeeper 관련해서 클러스터 설정은 끝입니다.
@@ -74,17 +74,17 @@ vim config/server.properties
 ```
 위 커맨드를 입력하여 카프카와 관련된 설정파일을 열어줍니다.
 
-![]({{site.baseurl}}/images/kafka/kafka3.JPG)
+![]({{site.baseurl}}/images/2022-05-19-kafka-cluster/kafka3.JPG)
 `broker.id` 옵션을 찾아서 zookeeper에서 설정한 myid 값을 넘겨줍니다.
 
 <br/>
 
-![]({{site.baseurl}}/images/kafka/kafka4.JPG)
+![]({{site.baseurl}}/images/2022-05-19-kafka-cluster/kafka4.JPG)
 `advertised.listeners` 옵션을 찾아서 listen할 아이피와 포트를 설정해주도록 합니다. 일단은 외부와의 통신을 고려하지 않고 진행하기 때문에 위와 같이 설정하였습니다. 저 같은 경우 `listeners` 옵션 주석이 풀려있는데 이 옵션은 주석을 풀지 않고 그대로 두셔도 됩니다.
 
 <br/>
 
-![]({{site.baseurl}}/images/kafka/kafka5.JPG)
+![]({{site.baseurl}}/images/2022-05-19-kafka-cluster/kafka5.JPG)
 마지막으로 `zookeeper.connect`에 zookeeper에서 클러스터를 구성한 노드(컴퓨터)들의 IP 주소와 포트를 적어줍니다.
 
 ```
@@ -112,7 +112,7 @@ bin/kafka-topics.sh --list \
 --bootstrap-server 192.168.0.11:9092,192.168.0.12:9092,192.168.0.13:9092
 ```
 
-![]({{site.baseurl}}/images/kafka/kafka6.JPG)
+![]({{site.baseurl}}/images/2022-05-19-kafka-cluster/kafka6.JPG)
 위와 같이 `cluster-test` 이름을 가진 토픽이 생성되고 리스트에서 확인할 수 있는 것을 볼 수 있습니다.
 
 <br/>
@@ -131,12 +131,12 @@ vim config/server.properties
 ```
 advertised.listeners=PLAINTEXT://{외부 IP}:{외부 포트}
 ```
-![]({{site.baseurl}}/images/kafka/kafka7.jpg)
+![]({{site.baseurl}}/images/2022-05-19-kafka-cluster/kafka7.jpg)
 저 같은 경우 각각 외부에서 30011, 30012, 30013으로 설정하였습니다.
 
 <br/>
 
-![]({{site.baseurl}}/images/kafka/kafka8.JPG)
+![]({{site.baseurl}}/images/2022-05-19-kafka-cluster/kafka8.JPG)
 그 후 포트포워딩도 진행하였습니다. 포트포워딩을 위해 추가한 설정은 순위 13~15 입니다.
 
 <br/>
@@ -152,7 +152,7 @@ advertised.listeners=PLAINTEXT://{외부 IP}:{외부 포트}
 bin/kafka-topic.sh --list \
 --bootstrap-server {외부IP}:{외부 포트},{외부IP}:{외부 포트},{외부IP}:{외부 포트}
 ```
-![]({{site.baseurl}}/images/kafka/kafka9.jpg)
+![]({{site.baseurl}}/images/2022-05-19-kafka-cluster/kafka9.jpg)
 토픽 리스트를 확인하는 커맨드를 날려주면 정상적으로 통신을 해 토픽 리스트들을 받아온 것을 확인 할 수 있습니다.
 
 <br/>
