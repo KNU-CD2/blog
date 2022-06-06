@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: on-premise 환경에 사용된 장비 및 부품
 categories: [On-premise]
-title: \[On-premise] hardware setting
+title: "[On-premise] hardware setting"
 sticky_rank: 1
 ---
 
