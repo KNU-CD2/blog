@@ -4,6 +4,7 @@ layout: post
 description: ElasticSearch와 Kibana 연동하기
 categories: [Elasticsearch, Kibana]
 title: Intergrating ElasticSearch & Kibana
+sticky_rank: 6
 ---
 
 # ElasticSearch와 Kibana 연동하기(8.1.0)
@@ -16,7 +17,7 @@ Elasticsearch와 Kibana 연동 부분에서도 많은 변화가 있어 기존 �
 
 먼저 Elasticsearch를 실행시켜는 법을 알려드리겠습니다.
 
-![]({{site.baseurl}}/images/inter1.PNG)
+![]({{site.baseurl}}/images/2022-05-11-intergrating-elasticsearch-and-kibana/inter1.PNG)
 설치한 Elasticsearch 폴더 내부에 많은 파일과 폴더가 있는 걸 알 수 있습니다.
 Elasticsearch를 실행시킬려면 bin에 있는 elasticsearch를 실행시키면 됩니다.
 
@@ -24,7 +25,7 @@ Elasticsearch를 실행시킬려면 bin에 있는 elasticsearch를 실행시키�
 ./bin/elasticsearch
 ```
 
-![]({{site.baseurl}}/images/inter2.PNG)
+![]({{site.baseurl}}/images/2022-05-11-intergrating-elasticsearch-and-kibana/inter2.PNG)
 
 Elasticsearch를 최초로 실행시키면 이렇게 토큰과 Kibana에 접속할 비밀번호를 보여줍니다. 이를 잘 보관해두셔야 Kibana와 연동이 가능합니다.
 이제 Kibana를 실행시켜 Elasticserach와 Kibana를 연동시켜 보겠습니다.
@@ -40,7 +41,7 @@ vi config/kibana.yml
 
 커맨드를 입력해서 kibana.yml 파일을 수정하겠습니다.
 
-![]({{site.baseurl}}/images/inter4.PNG)
+![]({{site.baseurl}}/images/2022-05-11-intergrating-elasticsearch-and-kibana/inter4.PNG)
 초기에는 server.host: "localhost"가 주석처리 되어 있습니다. 주석을 지우고
 
 ```shell
@@ -51,7 +52,7 @@ server.host: 0.0.0.0
 
 ## 3. Kibana 실행하기
 
-![]({{site.baseurl}}/images/inter3.PNG)
+![]({{site.baseurl}}/images/2022-05-11-intergrating-elasticsearch-and-kibana/inter3.PNG)
 설치한 Kibana 폴더 내부입니다. Kibana도 bin폴더에 있는 kibana를 실행하면 됩니다.
 Kibana를 실행하기 전 위에서 최초로 구동시킨 Elasticsearch가 실행 중이어야 합니다.
 
@@ -59,32 +60,32 @@ Kibana를 실행하기 전 위에서 최초로 구동시킨 Elasticsearch가 실
 ./bin/kibana
 ```
 
-![]({{site.baseurl}}/images/inter5.PNG)
+![]({{site.baseurl}}/images/2022-05-11-intergrating-elasticsearch-and-kibana/inter5.PNG)
 
 그럼 터미널에서 이렇게 코드값을 주고 Kibana가 실행됩니다.
 
 Kibana의 port는 5601로 설정되어 있습니다.
 localhost:5601 또는 ServerIP:5601 로 접속하면,
-![]({{site.baseurl}}/images/inter6.PNG)
+![]({{site.baseurl}}/images/2022-05-11-intergrating-elasticsearch-and-kibana/inter6.PNG)
 
 이렇게 Kibana에서 토큰을 입력하라고 합니다.
 그러면 아까 Elasticsearch에서 발행된 토큰을 입력해줍니다.
-![]({{site.baseurl}}/images/inter7.PNG)
+![]({{site.baseurl}}/images/2022-05-11-intergrating-elasticsearch-and-kibana/inter7.PNG)
 
 토큰이 입력되면 kibana는 코드를 입력하라 합니다.
-![]({{site.baseurl}}/images/inter8.PNG)
+![]({{site.baseurl}}/images/2022-05-11-intergrating-elasticsearch-and-kibana/inter8.PNG)
 
 Kibana를 실행시킬 때 코드를 입력해줍니다.
-![]({{site.baseurl}}/images/inter13.PNG)
+![]({{site.baseurl}}/images/2022-05-11-intergrating-elasticsearch-and-kibana/inter13.PNG)
 
-![]({{site.baseurl}}/images/inter9.PNG)
+![]({{site.baseurl}}/images/2022-05-11-intergrating-elasticsearch-and-kibana/inter9.PNG)
 이렇게 Elasticsearch와 Kibana의 연동이 끝납니다.
 
-![]({{site.baseurl}}/images/inter10.PNG)
+![]({{site.baseurl}}/images/2022-05-11-intergrating-elasticsearch-and-kibana/inter10.PNG)
 로그인 창이 나오는데요. 초기에는
 Username: elastic
 Password는 Elasticsearch를 최초로 실행시킬 때 나오는 password를 입력해줍니다.
-![]({{site.baseurl}}/images/inter11.PNG)
+![]({{site.baseurl}}/images/2022-05-11-intergrating-elasticsearch-and-kibana/inter11.PNG)
 
-![]({{site.baseurl}}/images/inter12.PNG)
+![]({{site.baseurl}}/images/2022-05-11-intergrating-elasticsearch-and-kibana/inter12.PNG)
 이제 Kibana에 접속이 완료되었습니다.

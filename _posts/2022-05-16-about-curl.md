@@ -1,11 +1,10 @@
 ---
-
 toc: true
 layout: post
 description: ElasticSearch에서 curl 사용하기
 categories: [Elasticsearch]
 title: Using curl with ElasticSearch
-
+sticky_rank: 9
 ---
 
 # ElasticSearch에서 curl 사용하기

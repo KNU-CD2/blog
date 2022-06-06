@@ -4,6 +4,7 @@ layout: post
 description: ElasticSearch Toekn, Kibana Password 초기화하기
 categories: [Elasticsearch, Kibana]
 title: Reset ElasticSearch Token and Kibana Password
+sticky_rank: 8
 ---
 
 # ElasticSearch Toekn, Password 초기화하기
@@ -26,7 +27,7 @@ Elasticsearch와 Kibana를 삭제 후 재설치 하시면
 
 위의 커맨드를 실행시키면 됩니다.
 
-![]({{site.baseurl}}/images/token1.PNG)
+![]({{site.baseurl}}/images/2022-05-15-token-password/token1.PNG)
 
 그러면 사진과 같이 토큰이 초기화됩니다.
 
@@ -45,29 +46,29 @@ bin 폴더로 가서
 
 위의 커맨드를 실행시키면
 
-![]({{site.baseurl}}/images/token2.PNG)
+![]({{site.baseurl}}/images/2022-05-15-token-password/token2.PNG)
 
 사진과 같이 터미널에 비밀번호를 출력할 것인지 묻습니다.
 그냥 y를 입력하면
 
-![]({{site.baseurl}}/images/token3.PNG)
+![]({{site.baseurl}}/images/2022-05-15-token-password/token3.PNG)
 
 터미널에 비밀번호가 나타납니다.
 이 비밀번호를 Kibana에 입력합니다.(초기 Username: elastic)
 
-![]({{site.baseurl}}/images/token5.PNG)
+![]({{site.baseurl}}/images/2022-05-15-token-password/token5.PNG)
 
 Kibana 로그인이 완료되었습니다.
 
-![]({{site.baseurl}}/images/token6.PNG)
+![]({{site.baseurl}}/images/2022-05-15-token-password/token6.PNG)
 비밀번호를 변경하고 싶으시면 우측상단에 프로필 창을 클릭합니다.
 
-![]({{site.baseurl}}/images/token7.PNG)
+![]({{site.baseurl}}/images/2022-05-15-token-password/token7.PNG)
 사진과 같이 Kibana의 비밀번호를 원하는 비밀번호로 수정하실 수 있습니다!
 
 ## 3. Elasticsearch를 실행시키지 않았을 때
 
-![]({{site.baseurl}}/images/token8.PNG)
+![]({{site.baseurl}}/images/2022-05-15-token-password/token8.PNG)
 Elasticsearch를 실행시키지 않고 커맨드를 날리면
 ERROR: Failed to determine the health of the cluster. 라는 에러가 발생합니다.
 
