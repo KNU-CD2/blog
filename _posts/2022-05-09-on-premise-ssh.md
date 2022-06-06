@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: on-premise 초기 접속 설정
 categories: [On-premise]
-title: [On-premise] init connection with ssh
+title: On-premise init connection with ssh
 sticky_rank: 3
 ---
 

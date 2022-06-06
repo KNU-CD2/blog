@@ -3,8 +3,7 @@ toc: true
 layout: post
 description: Elasticsearch에서 다중노드 환경의 클러스터 환경 구축 방법
 categories: [Elasticsearch]
-title: [Elastic Stack] How to deploy a multi-node elasticsearch cluster
-sticky_rank: 10
+title: How to deploy a multi-node elasticsearch cluster
 ---
 
 # 엘라스틱서치 다중노드 클러스터 환경 구축

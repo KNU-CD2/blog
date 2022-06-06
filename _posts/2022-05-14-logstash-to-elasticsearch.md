@@ -3,8 +3,7 @@ toc: true
 layout: post
 description: Logstash에서 Elasticsearch로 데이터 전송 및 저장하는 방법. PKIX path building failed 에러 해결법.
 categories: [Logstash]
-title: [Elastic Stack] How to connect Logstash with Elasticsearch
-sticky_rank: 13
+title: How to connect Logstash with Elasticsearch
 ---
 
 # Logstash에서 Elasticsearch로 데이터 저장하는 방법

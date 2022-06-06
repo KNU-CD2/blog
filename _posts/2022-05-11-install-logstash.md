@@ -3,8 +3,7 @@ toc: true
 layout: post
 description: Logstash 설치 방법
 categories: [Logstash]
-title: [Elastic Stack] Download Logtash
-sticky_rank: 11
+title: Download Logtash
 ---
 
 # 리눅스 서버에 Logstash 8.1.0 설치하는 방법

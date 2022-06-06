@@ -3,8 +3,7 @@ toc: true
 layout: post
 description: Logstash file input plugin 사용시 한 줄만 읽어지는 문제
 categories: [Logstash]
-title: [Elastic Stack] How to use file input plugin to read multiple lines in logstash.
-sticky_rank: 15
+title: How to use file input plugin to read multiple lines in logstash.
 ---
 
 # 로그스태시 file input 플러그인 사용시 한 줄만 읽어지는 문제

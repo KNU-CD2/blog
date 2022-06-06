@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: max virtual memory areas vm.max_map_count [65530] is too low 에러 해결법
 categories: [Elasticsearch]
-title: [Elastic Stack] How to handle vm.max_map_count [65530] error in elasticsearch
+title: How to handle vm.max_map_count [65530] error in elasticsearch
 sticky_rank: 7
 ---
 

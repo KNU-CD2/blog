@@ -4,7 +4,6 @@ layout: post
 description: vscode를 이용한 ssh 원격 접속 자동 로그인 방법
 categories: [Ssh]
 title: SSH connect auto login with vscode
-sticky_rank: 20
 ---
 
 # 서론

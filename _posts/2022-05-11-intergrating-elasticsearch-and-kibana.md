@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: ElasticSearch와 Kibana 연동하기
 categories: [Elasticsearch, Kibana]
-title: [Elastic Stack] Intergrating ElasticSearch & Kibana
+title: Intergrating ElasticSearch & Kibana
 sticky_rank: 6
 ---
 

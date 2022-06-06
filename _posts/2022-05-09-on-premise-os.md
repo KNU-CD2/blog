@@ -1,9 +1,9 @@
 ---
 toc: true
 layout: post
-description: On-premise os 설치
+description: on-premise os 설치
 categories: [On-premise]
-title: [On-premise] os install
+title: On-premise os install
 sticky_rank: 2
 ---
 
