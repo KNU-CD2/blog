@@ -3,8 +3,8 @@ toc: true
 layout: post
 description: ElasticSearch Toekn, Kibana Password 초기화하기
 categories: [Elasticsearch, Kibana]
-title: Reset ElasticSearch Token and Kibana Password
-sticky_rank: 8
+title: "[Elasticsearch & Kibana] Reset ElasticSearch Token and Kibana Password"
+sticky_rank: 7
 ---
 
 # ElasticSearch Toekn, Password 초기화하기

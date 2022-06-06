@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: Logstash 설치 방법
 categories: [Logstash]
-title: Download Logtash
+title: "[Logstash] Download Logtash"
 sticky_rank: 12
 ---
 

@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: Logstash file input plugin 사용시 한 줄만 읽어지는 문제
 categories: [Logstash]
-title: How to use file input plugin to read multiple lines in logstash.
+title: "[Logstash] How to use file input plugin to read multiple lines in logstash."
 sticky_rank: 15
 ---
 

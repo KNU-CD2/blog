@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: 파이썬에서 엘라스틱서치 클라이언트 연결하는 방법
 categories: [Elasticsearch]
-title: Elasticsearch Python Client Connecting
+title: "[Elasticsearch] Elasticsearch Python Client Connecting"
 sticky_rank: 11
 ---
 
