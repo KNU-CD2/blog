@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: ElasticSearch에서 curl 사용하기
 categories: [Elasticsearch]
-title: "[Elasticsearc] Using curl with ElasticSearch"
+title: "[Elasticsearch] Using curl with ElasticSearch"
 sticky_rank: 9
 ---
 

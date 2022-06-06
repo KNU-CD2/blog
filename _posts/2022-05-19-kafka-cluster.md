@@ -3,7 +3,7 @@ toc: true
 layout: post
 description: 카프카 클러스터 구성
 categories: [Kafka]
-title: "[Kafka] Kafka Cluster"
+title: "[Kafka] Deploy Kafka Cluster"
 sticky_rank: 18
 ---
 
