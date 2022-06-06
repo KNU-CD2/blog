@@ -116,13 +116,13 @@ window.onload = wrap_img;
 <h2 id="카프카-다운로드">
 <a class="anchor" href="#%EC%B9%B4%ED%94%84%EC%B9%B4-%EB%8B%A4%EC%9A%B4%EB%A1%9C%EB%93%9C" aria-hidden="true"><span class="octicon octicon-link"></span></a>카프카 다운로드</h2>
 
-<p><img src="/blog/images/kafka/kafkaset1.JPG" alt="">
+<p><img src="/blog/images/2022-05-15-kafka-download/kafkaset1.JPG" alt="">
 <code class="language-plaintext highlighter-rouge">https://kafka.apache.org/downloads</code> <br>
 위 사이트로 가서 카프카 다운로드 링크를 복사하도록 하겠습니다.</p>
 
 <p><br></p>
 
-<p><img src="/blog/images/kafka/kafkaset2.JPG" alt=""></p>
+<p><img src="/blog/images/2022-05-15-kafka-download/kafkaset2.JPG" alt=""></p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://dlcdn.apache.org/kafka/3.1.0/kafka_2.13-3.1.0.tgz
 </code></pre></div></div>
 <p>앞에 숫자는 Scalar 버전이고, 뒤에 숫자는 카프카 버전입니다.
@@ -130,8 +130,8 @@ window.onload = wrap_img;
 
 <p><br></p>
 
-<p><img src="/blog/images/kafka/kafkaset3.JPG" alt="">
-<img src="/blog/images/kafka/kafkaset4.JPG" alt=""></p>
+<p><img src="/blog/images/2022-05-15-kafka-download/kafkaset3.JPG" alt="">
+<img src="/blog/images/2022-05-15-kafka-download/kafkaset4.JPG" alt=""></p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -xzvf kafka_2.13-3.1.0.tgz
 </code></pre></div></div>
 <p><code class="language-plaintext highlighter-rouge">tar</code> 명령어를 통해 압축을  풀어줍니다.</p>
@@ -145,14 +145,14 @@ window.onload = wrap_img;
 
 <p>카프카를 구동하기 위해서는 자바가 필요합니다. 자바도 설치해보도록 하겠습니다.</p>
 
-<p><img src="/blog/images/kafka/kafkaset5.JPG" alt=""></p>
+<p><img src="/blog/images/2022-05-15-kafka-download/kafkaset5.JPG" alt=""></p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install openjdk-8-jdk-headless
 </code></pre></div></div>
 <p>저의 경우 자바 8 버전을 설치하였습니다.</p>
 
 <p><br></p>
 
-<p><img src="/blog/images/kafka/kafkaset6.JPG" alt="">
+<p><img src="/blog/images/2022-05-15-kafka-download/kafkaset6.JPG" alt="">
 설치가 완료되었고 테스트 할겸 java와 javac의 버전도 출력해보았습니다.</p>
 
 <p><br></p>
@@ -187,27 +187,27 @@ window.onload = wrap_img;
 
 <p>카프카를 로컬에서 통신하기 위해 server.properties를 설정해보겠습니다.</p>
 
-<p><img src="/blog/images/kafka/kafkaset7.JPG" alt=""></p>
+<p><img src="/blog/images/2022-05-15-kafka-download/kafkaset7.JPG" alt=""></p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd kafka_2.13-3.1.0
 vim config/server.properties
 </code></pre></div></div>
 
 <p><br></p>
 
-<p><img src="/blog/images/kafka/kafkaset8.JPG" alt="">
+<p><img src="/blog/images/2022-05-15-kafka-download/kafkaset8.JPG" alt="">
 그 다음 <code class="language-plaintext highlighter-rouge">advertised.listeners</code>를 찾아서 주석을 풀어주고 설정을 합니다.</p>
 
 <p>저 같은 경우 여러대의 라즈베리파이가 외부아이피 하나에 연결되어 있기에 기존의 9092포트가 아닌 30014로 설정하였습니다. 아이피 부분은 클라우드의 인스턴스나 본인이 구축한 온프레미스 환경의 외부아이피를 입력하시면 됩니다.</p>
 
 <p><br></p>
 
-<p><img src="/blog/images/kafka/kafkaset9.JPG" alt="">
+<p><img src="/blog/images/2022-05-15-kafka-download/kafkaset9.JPG" alt="">
 그 후 포트포워딩도 진행하였습니다. 로컬과 통신을 위해 새로 추가한 규칙은 순위 16의 규칙입니다.</p>
 
 <p><br></p>
 
-<p><img src="/blog/images/kafka/kafkaset10.JPG" alt="">
-<img src="/blog/images/kafka/kafkaset11.JPG" alt="">
+<p><img src="/blog/images/2022-05-15-kafka-download/kafkaset10.JPG" alt="">
+<img src="/blog/images/2022-05-15-kafka-download/kafkaset11.JPG" alt="">
 추가적으로 카프카를 구동하기전에 <code class="language-plaintext highlighter-rouge">server.properties</code> 에서 <code class="language-plaintext highlighter-rouge">log.dirs</code>에 설정된 값에 해당하는 디렉토리가 없다면 생성해주도록 합니다.</p>
 
 <p><br></p>
@@ -228,7 +228,7 @@ vim config/server.properties
 </code></pre></div></div>
 <p><code class="language-plaintext highlighter-rouge">-daemon</code> 옵션은 백그라운드로 동작하도록 해주는 옵션입니다.</p>
 
-<p><img src="/blog/images/kafka/kafkaset12.JPG" alt="">
+<p><img src="/blog/images/2022-05-15-kafka-download/kafkaset12.JPG" alt="">
 실행을 한 후에 <code class="language-plaintext highlighter-rouge">jps</code>를 커맨드라인에 입력하면 위와 같이 <code class="language-plaintext highlighter-rouge">QuorumPeerMain</code>(주키퍼) 와 <code class="language-plaintext highlighter-rouge">Kafka</code>가 동작 중인 것을 확인 할 수 있습니다.</p>
 
 <p><br></p>
@@ -240,7 +240,7 @@ vim config/server.properties
 
 <p>저의 로컬 환경은 Window10 에서 WSL을 활용하였습니다.</p>
 
-<p><img src="/blog/images/kafka/kafkaset13.JPG" alt="">
+<p><img src="/blog/images/2022-05-15-kafka-download/kafkaset13.JPG" alt="">
 WSL에서도 서버에 설치한 카프카와 자바의 버전과 동일하게 카프카와 자바를 설치해줍니다. 위에서 설치시 활용한 커맨드를 그대로 입력하면 됩니다</p>
 
 <p><br></p>
@@ -249,7 +249,7 @@ WSL에서도 서버에 설치한 카프카와 자바의 버전과 동일하게 �
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bin/kafka-broker-api-versions.sh --bootstrap-server 59.23.xxx.xxx:30014
 </code></pre></div></div>
 
-<p><img src="/blog/images/kafka/kafkaset14.JPG" alt="">
+<p><img src="/blog/images/2022-05-15-kafka-download/kafkaset14.JPG" alt="">
 통신이 정상적으로 잘 되는 것을 확인 할 수 있습니다.</p>
 
 <p><br></p>
