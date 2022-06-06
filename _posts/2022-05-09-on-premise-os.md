@@ -4,6 +4,7 @@ layout: post
 description: on-premise os 설치
 categories: [On-premise]
 title: On-premise os install
+sticky_rank: 2
 ---
 
 # OS 설치
@@ -17,19 +18,19 @@ title: On-premise os install
 > ### 1. SD Card Formatter
 
 <br/>
-![]({{site.baseurl}}/images/format1.png)
+![]({{site.baseurl}}/images/2022-05-09-on-premise-os/format1.png)
 <br/>
 
 >sdcard.org에서 다운 받을 수 있고, 간편하게 SD 카드를 포맷시킬 수 있는 프로그램입니다.
 
 <br/>
-![]({{site.baseurl}}/images/format2.JPG)
+![]({{site.baseurl}}/images/2022-05-09-on-premise-os/format2.JPG)
 <br/>
 
 >sd카드를 컴퓨터에 넣고 동작하면 위와 같이 자동적으로 인식이 됩니다.
 
 <br/>
-![]({{site.baseurl}}/images/format3.JPG)
+![]({{site.baseurl}}/images/2022-05-09-on-premise-os/format3.JPG)
 <br/>
 
 >Quick format을 실행하면 파일시스템도 알아서 잘 포맷해 줍니다.
@@ -41,7 +42,7 @@ title: On-premise os install
 > ### 2. 윈도우에서 포맷 하는 경우
 
 <br/>
-![]({{site.baseurl}}/images/format4.JPG)
+![]({{site.baseurl}}/images/2022-05-09-on-premise-os/format4.JPG)
 <br/>
 
 > 파일시스템은 FAT32로 해야 됩니다. 그리고 블록사이즈는 OS를 설치하면 자동적으로 512로 변경이되기 때문에 블록 사이즈는 기존 설정대로하면 됩니다.
@@ -53,25 +54,25 @@ title: On-premise os install
 OS의 경우 ubuntu server 20.04 LTS 를 사용했습니다. ubuntu server의 경우 OS를 설치하면 ssh 파일을 생성하는 등 번거러운 과정 필요 없이 바로 ssh로 접속할 수 있고, 용량도 작기에 Desktop 대신 Server를 이용하였습니다.
 
 <br/>
-![]({{site.baseurl}}/images/os.png)
+![]({{site.baseurl}}/images/2022-05-09-on-premise-os/os.png)
 <br/>
 
 버전의 경우 22.04 LTS나 향후 더 나올 최신 버전을 사용해도 상관 없을 것 같습니다
 
 <br/>
-![]({{site.baseurl}}/images/etcher1.png)
+![]({{site.baseurl}}/images/2022-05-09-on-premise-os/etcher1.png)
 <br/>
 
 os를 설치할 땐 etcher를 사용합니다.
 
 <br/>
-![]({{site.baseurl}}/images/etcher2.JPG)
+![]({{site.baseurl}}/images/2022-05-09-on-premise-os/etcher2.JPG)
 <br/>
 
 UI가 직관적이기 때문에 별도의 설명이 없어도 충분히 쉽게 사용 가능합니다.
 
 <br/>
-![]({{site.baseurl}}/images/etcher3.JPG)
+![]({{site.baseurl}}/images/2022-05-09-on-premise-os/etcher3.JPG)
 <br/>
 
 설치가 완료되면 자동적으로 디스크가 꺼내집니다.
