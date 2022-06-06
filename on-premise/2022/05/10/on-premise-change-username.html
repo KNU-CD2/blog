@@ -118,30 +118,30 @@ window.onload = wrap_img;
 
 <h2 id="root로-ssh-접속하기">
 <a class="anchor" href="#root%EB%A1%9C-ssh-%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>root로 ssh 접속하기</h2>
-<p><img src="/blog/images/change1.JPG" alt="">
+<p><img src="/blog/images/2022-05-10-on-premise-change-username/change1.JPG" alt="">
   일반 유저로 접속 후 <code class="language-plaintext highlighter-rouge">sudo passwd root</code>를 입력한 후 본인이 설정하고자 하는 비밀번호를 입력합니다. 해당 커맨드는 os 처음 설치시, root 비밀번호를 설정하는 커맨드입니다.</p>
 
 <p><br></p>
 
-<p><img src="/blog/images/change2.JPG" alt=""><br>
+<p><img src="/blog/images/2022-05-10-on-premise-change-username/change2.JPG" alt=""><br>
   <code class="language-plaintext highlighter-rouge">sudo vim /etc/ssh/sshd_config</code> 를 입력합니다. root를 통한 ssh 접속은 기본적으로 거부되기 때문에 해당 파일의 설정을 변경해주어야 합니다.</p>
 
 <p><br></p>
 
-<p><img src="/blog/images/change3.JPG" alt="">
-  <img src="/blog/images/change4.JPG" alt="">
+<p><img src="/blog/images/2022-05-10-on-premise-change-username/change3.JPG" alt="">
+  <img src="/blog/images/2022-05-10-on-premise-change-username/change4.JPG" alt="">
   <code class="language-plaintext highlighter-rouge">PermitRootLogin</code> 속성을 찾아서 주석을 풀고 <code class="language-plaintext highlighter-rouge">prohibit-password</code>는 지우고 <code class="language-plaintext highlighter-rouge">yes</code>로 바꿔줍니다.
   vim을 사용하실 경우 <code class="language-plaintext highlighter-rouge">:\PermitRootLogin</code> 을 입력하면 쉽게 찾으실 수 있습니다.</p>
 
 <p><br></p>
 
-<p><img src="/blog/images/change5.JPG" alt="">
+<p><img src="/blog/images/2022-05-10-on-premise-change-username/change5.JPG" alt="">
   변경 사항을 반영하기 위해 <code class="language-plaintext highlighter-rouge">systemctl restart sshd</code>를 입력합니다.</p>
 
 <p><br></p>
 
-<p><img src="/blog/images/change6.JPG" alt="">
-  <img src="/blog/images/change7.JPG" alt="">
+<p><img src="/blog/images/2022-05-10-on-premise-change-username/change6.JPG" alt="">
+  <img src="/blog/images/2022-05-10-on-premise-change-username/change7.JPG" alt="">
   해당 과정을 거치면 ssh를 root 계정을 통해서 접속이 가능해지게 됩니다.</p>
 
 <p><br></p>
@@ -153,16 +153,16 @@ window.onload = wrap_img;
 <h2 id="사용자-이름-바꾸기">
 <a class="anchor" href="#%EC%82%AC%EC%9A%A9%EC%9E%90-%EC%9D%B4%EB%A6%84-%EB%B0%94%EA%BE%B8%EA%B8%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>사용자 이름 바꾸기</h2>
 
-<p><img src="/blog/images/change8.JPG" alt="">
+<p><img src="/blog/images/2022-05-10-on-premise-change-username/change8.JPG" alt="">
   <code class="language-plaintext highlighter-rouge">usermod -l newname oldname</code> 을 입력합니다 소문자 L입니다. 저의 경우 <code class="language-plaintext highlighter-rouge">ubuntu</code>를 <code class="language-plaintext highlighter-rouge">simul</code>로 바꾸어 보겠습니다.</p>
 
 <p><br></p>
 
-<p><img src="/blog/images/change9.JPG" alt="">
+<p><img src="/blog/images/2022-05-10-on-premise-change-username/change9.JPG" alt="">
   <code class="language-plaintext highlighter-rouge">usermod -m -d /home/newname newname</code>을 입력합니다. <strong>둘 다 newname으로 적은건 오타가 아닙니다!</strong></p>
 <div class="Toast Toast--warning googoo">
    <span class="Toast-icon"><svg class="octicon octicon-alert" viewbox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M8.22 1.754a.25.25 0 00-.44 0L1.698 13.132a.25.25 0 00.22.368h12.164a.25.25 0 00.22-.368L8.22 1.754zm-1.763-.707c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0114.082 15H1.918a1.75 1.75 0 01-1.543-2.575L6.457 1.047zM9 11a1 1 0 11-2 0 1 1 0 012 0zm-.25-5.25a.75.75 0 00-1.5 0v2.5a.75.75 0 001.5 0v-2.5z"></path></svg></span>
-   <span class="Toast-content">위 커맨드 입력을 실수하면 홈디렉토리가 사라질 수 있습니다. 대처법은 따로 포스팅하였습니다.</span>
+   <span class="Toast-content">위 커맨드 입력을 실수하면 홈디렉토리가 사라질 수 있습니다.</span>
 </div>
 
 <p><br></p>
@@ -178,19 +178,19 @@ window.onload = wrap_img;
 <h2 id="바뀐-사용자로-로그인">
 <a class="anchor" href="#%EB%B0%94%EB%80%90-%EC%82%AC%EC%9A%A9%EC%9E%90%EB%A1%9C-%EB%A1%9C%EA%B7%B8%EC%9D%B8" aria-hidden="true"><span class="octicon octicon-link"></span></a>바뀐 사용자로 로그인</h2>
 
-<p><img src="/blog/images/change10.JPG" alt="">
-  <img src="/blog/images/change11.JPG" alt="">
+<p><img src="/blog/images/2022-05-10-on-premise-change-username/change10.JPG" alt="">
+  <img src="/blog/images/2022-05-10-on-premise-change-username/change11.JPG" alt="">
   바뀐 사용자로 로그인 한 다음에는 이제 다시 루트 로그인을 막아야합니다.</p>
 
 <p><br></p>
 
-<p><img src="/blog/images/change12.JPG" alt="">
-  <img src="/blog/images/change13.JPG" alt="">
+<p><img src="/blog/images/2022-05-10-on-premise-change-username/change12.JPG" alt="">
+  <img src="/blog/images/2022-05-10-on-premise-change-username/change13.JPG" alt="">
   <code class="language-plaintext highlighter-rouge">sudo vim /etc/ssh/sshd_config</code> 를 입력합니다. 그 다음 <code class="language-plaintext highlighter-rouge">PermitRootLogin</code> 부분 주석 처리를 합니다.</p>
 
 <p><br></p>
 
-<p><img src="/blog/images/change14.JPG" alt="">
+<p><img src="/blog/images/2022-05-10-on-premise-change-username/change14.JPG" alt="">
   <code class="language-plaintext highlighter-rouge">systemlctl restart sshd</code>를 하면 정상적으로 root 로그인은 막히게 됩니다.</p>
 
 
