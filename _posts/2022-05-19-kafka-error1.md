@@ -4,6 +4,7 @@ layout: post
 description: 카프카 실행 시 에러가 날 때
 categories: [Kafka]
 title: ERROR Exiting Kafka due to fatal exception (kafka.Kafka$)
+sticky_rank: 17
 ---
 
 # 카프카 실행 에러

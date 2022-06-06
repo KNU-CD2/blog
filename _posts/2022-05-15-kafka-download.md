@@ -4,6 +4,7 @@ layout: post
 description: 카프카 다운로드 및 설정
 categories: [Kafka]
 title: Kafka download and setting
+sticky_rank: 16
 ---
 
 # 카프카 다운로드 및 설정

@@ -4,6 +4,7 @@ layout: post
 description: Logstash 설치 방법
 categories: [Logstash]
 title: Download Logtash
+sticky_rank: 12
 ---
 
 # 리눅스 서버에 Logstash 8.1.0 설치하는 방법
