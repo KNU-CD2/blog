@@ -200,7 +200,7 @@
   
     
         ,"post18": {
-            "title": "\[On-premise] hardware setting",
+            "title": "[On-premise] hardware setting",
             "content": "온프레미스 환경에 사용된 장비 및 부품 . 1. 라즈베리파이 4B 8GB . . 2. 라즈베리파이 4B 4GB . . 3. 디스크 - 32GB MLC . . 4. 공유기 - iptime A3004T . . 5. 스위칭 허브 - iptime H6008 . . 그 외 부품들 . - cat6 30cm 랜선 - 5V 3A 충전기 - 아크릴 케이스 홀더 박스 - 5V 0.2A 냉각팬 .",
             "url": "https://knu-cd2.github.io/blog/on-premise/2022/05/05/on-premise-hardware.html",
             "relUrl": "/on-premise/2022/05/05/on-premise-hardware.html",
