@@ -3,7 +3,8 @@ toc: true
 layout: post
 description: vscode를 이용한 ssh 원격 접속 방법
 categories: [Ssh]
-title: SSH connect with vscode
+title: "[VScode] SSH connect with vscode"
+sticky_rank: 22
 ---
 
 # 서론
