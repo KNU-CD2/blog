@@ -33,6 +33,7 @@ tar -zxvf filebeat-8.1.0-linux-arm64.tar.gz
 * 압축을 푼 파일비츠 폴더로 이동해 `vim test.yml`, test 이름을 가진 .yml 파일을 작성합니다.
 
 * `test.yml` 파일은 아래와 같은 내용으로 작성합니다.
+
 ```yml
 filebeat.inputs:
   - type: log
