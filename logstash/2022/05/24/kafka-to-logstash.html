@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>[Logstash] Dataflow, Kafka Cluster to Logstash | KNU-CD2</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="[Logstash] Dataflow, Kafka Cluster to Logstash" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="카프카 클러스터와 로그스태시 연동" />
+<meta property="og:description" content="카프카 클러스터와 로그스태시 연동" />
+<link rel="canonical" href="https://knu-cd2.github.io/blog/logstash/2022/05/24/kafka-to-logstash.html" />
+<meta property="og:url" content="https://knu-cd2.github.io/blog/logstash/2022/05/24/kafka-to-logstash.html" />
+<meta property="og:site_name" content="KNU-CD2" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-05-24T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="[Logstash] Dataflow, Kafka Cluster to Logstash" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-05-24T00:00:00-05:00","datePublished":"2022-05-24T00:00:00-05:00","description":"카프카 클러스터와 로그스태시 연동","headline":"[Logstash] Dataflow, Kafka Cluster to Logstash","mainEntityOfPage":{"@type":"WebPage","@id":"https://knu-cd2.github.io/blog/logstash/2022/05/24/kafka-to-logstash.html"},"url":"https://knu-cd2.github.io/blog/logstash/2022/05/24/kafka-to-logstash.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://knu-cd2.github.io/blog/feed.xml" title="KNU-CD2" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">KNU-CD2</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Us</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">[Logstash] Dataflow, Kafka Cluster to Logstash</h1><p class="page-description">카프카 클러스터와 로그스태시 연동</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-05-24T00:00:00-05:00" itemprop="datePublished">
+        May 24, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#Logstash">Logstash</a>
+        
+      
+      </p>
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#카프카-로그스태시-데이터-파이프라인-구축">카프카-로그스태시 데이터 파이프라인 구축</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#logstash에서-conf-파일-설정">logstash에서 conf 파일 설정</a></li>
+</ul>
+</li>
+</ul><h1 id="카프카-로그스태시-데이터-파이프라인-구축">
+<a class="anchor" href="#%EC%B9%B4%ED%94%84%EC%B9%B4-%EB%A1%9C%EA%B7%B8%EC%8A%A4%ED%83%9C%EC%8B%9C-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%8C%8C%EC%9D%B4%ED%94%84%EB%9D%BC%EC%9D%B8-%EA%B5%AC%EC%B6%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>카프카-로그스태시 데이터 파이프라인 구축</h1>
+
+<p><strong>카프카 클러스터로부터 로그스태시를 이용해 데이터를 가져오는 방법</strong></p>
+
+<hr>
+
+<h2 id="logstash에서-conf-파일-설정">
+<a class="anchor" href="#logstash%EC%97%90%EC%84%9C-conf-%ED%8C%8C%EC%9D%BC-%EC%84%A4%EC%A0%95" aria-hidden="true"><span class="octicon octicon-link"></span></a>logstash에서 conf 파일 설정</h2>
+
+<ul>
+  <li>사용할 <code class="language-plaintext highlighter-rouge">conf</code> 파일의 <code class="language-plaintext highlighter-rouge">input</code> 부분을 아래와 같이 구성하면 간단하게 완료됩니다.</li>
+</ul>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">input</span> {
+    <span class="n">kafka</span> {
+        <span class="n">bootstrap_servers</span> =&gt; <span class="s2">"59.23.xxx.xxx:{port},59.23.xxx.xxx:{port}"</span>
+        <span class="n">topics</span> =&gt; [<span class="s2">"{topic name}"</span>]
+        <span class="n">consumer_threads</span> =&gt; <span class="m">1</span>
+    }
+}
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>클러스터를 구성한 경우 <code class="language-plaintext highlighter-rouge">bootstrap_servers</code>에 모든 IP:PORT를 적어주면 됩니다.</p>
+  </li>
+  <li>
+    <p>여기서 주의할 점은 하나의 <code class="language-plaintext highlighter-rouge">""</code> 안에 적어주어야 합니다. 아래와 같이 작성하면 오류가 발생합니다.</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(error case1)
+bootstrap_servers =&gt; "59.23.xxx.xxx:{port}", "59.23.xxx.xxx:{port}"
+
+(error case2)
+bootstrap_servers =&gt; ["59.23.xxx.xxx:{port}", "59.23.xxx.xxx:{port}"]
+</code></pre></div></div>
+
+<ul>
+  <li>이 외에도 데이터를 불러올 때 다양한 옵션들이 많습니다. 다양한 옵션들은 logstash 공식 문서에서 확인하실 수 있습니다.</li>
+</ul>
+
+  </div><a class="u-url" href="/blog/logstash/2022/05/24/kafka-to-logstash.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>To contribute to the open source ecosystem of elastic stacks.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/KNU-CD2" target="_blank" title="KNU-CD2"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

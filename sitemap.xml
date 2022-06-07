@@ -4,9 +4,41 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>https://KNU-CD2.github.io/filebeat/2022/05/27/filebeat-to-kafka.html.html</loc>
+        
+        <lastmod>2022-05-27T00:00:00-05:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>https://KNU-CD2.github.io/filebeat/2022/05/26/filebeat-download.html.html</loc>
         
         <lastmod>2022-05-26T00:00:00-05:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
+        <loc>https://KNU-CD2.github.io/logstash/2022/05/24/kafka-to-logstash.html.html</loc>
+        
+        <lastmod>2022-05-24T00:00:00-05:00</lastmod>
         
 
         
