@@ -4,7 +4,7 @@ layout: post
 description: 카프카 클러스터 구성
 categories: [Kafka]
 title: "[Kafka] Deploy Kafka Cluster"
-sticky_rank: 18
+sticky_rank: 19
 ---
 
 # 카프카 클러스터 구성하기
